@@ -8,11 +8,14 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
-    [SerializeField] private float spawnInterval = 1f;
+
+
+    [SerializeField, Min(0)] private float spawnInterval = 1f;
+    private float spawnIntervalAux = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     GameObject getRandomEnemy()
@@ -22,12 +25,25 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        spawnIntervalAux = spawnInterval;
         Instantiate(getRandomEnemy(), transform.position, transform.rotation);
+    }
+
+    void CalculateEnemySpawn()
+    {
+        if (spawnIntervalAux <= 0)
+        {
+            SpawnEnemy();
+        }
+        else
+        {
+            spawnIntervalAux -= Time.deltaTime;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CalculateEnemySpawn();
     }
 }
