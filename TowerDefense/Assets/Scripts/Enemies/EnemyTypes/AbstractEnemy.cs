@@ -9,14 +9,14 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyController))]
 public abstract class AbstractEnemy : MonoBehaviour
 {
-    [SerializeField, Tooltip("Drag in the ScriptableObject with the enemy settings")] private EnemySettingsSO settings;
+    [SerializeField, Tooltip("Drag in the ScriptableObject with the enemy settings")] protected EnemySettingsSO settings;
     public int currentHealth { get; protected set; }
 
     protected Transform target;
 
     private EnemyController controller;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if(settings == null)
         {

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 /// <summary>
-/// This pathfinder uses Unity's AI, it requires backing a NavMesh in the scene
+/// This pathfinder uses Unity's AI, it requires baking a NavMesh in the scene
 /// and a NavMeshAgent component to work.
 /// </summary>
 [RequireComponent(typeof(NavMeshAgent))]

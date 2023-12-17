@@ -366,7 +366,10 @@
 "Assets/Scripts/Managers/GameManager.cs"
 "Assets/Scripts/Pathfinding/Interfaces/IPathFinding.cs"
 "Assets/Scripts/Pathfinding/UnityPathfinder.cs"
-"Assets/Scripts/SciptableObjects/EnemySettingsSO.cs"
+"Assets/Scripts/ScriptableObjects/Enemy/BossEnemySettingsSO.cs"
+"Assets/Scripts/ScriptableObjects/Enemy/EnemySettingsSO.cs"
+"Assets/Scripts/ScriptableObjects/Enemy/StrongEnemySettingsSO.cs"
+"Assets/Scripts/ScriptableObjects/Enemy/WeakEnemySettingsSO.cs"
 -langversion:9.0
 
 /deterministic
