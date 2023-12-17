@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 358
     height: 819.3333
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 87
+  controlID: 97
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -268,8 +268,8 @@ MonoBehaviour:
     y: 0
     width: 1142.6666
     height: 586.6667
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -347,9 +347,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 04a2ffff
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2cfbffff
+      m_ExpandedIDs: 22fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -465,7 +465,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ScriptableObjects
+    - Assets/Editor
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -473,16 +473,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/ScriptableObjects
+  - Assets/Editor
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\1.UNIVERSITY\Year 2 Term 2\Software Architecture\Assignment\TowerDefense
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 180}
-    m_SelectedIDs: ea5a0000
-    m_LastClickedID: 23274
-    m_ExpandedIDs: 00000000ca5a0000cc5a0000ce5a0000d05a0000d25a0000e65a0000005b000000ca9a3b
+    scrollPos: {x: 0, y: 240}
+    m_SelectedIDs: fe5a0000
+    m_LastClickedID: 23294
+    m_ExpandedIDs: 00000000e85a0000ea5a0000ec5a0000ee5a0000f05a0000f25a0000f45a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -510,7 +510,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 42.333374}
     m_SelectedIDs: 9e590000
     m_LastClickedID: 22942
-    m_ExpandedIDs: 00000000ca5a0000cc5a0000ce5a0000d05a0000d25a0000
+    m_ExpandedIDs: 00000000e85a0000ea5a0000ec5a0000ee5a0000f05a0000f25a0000f45a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.35528776, y: 0.024489982, z: -0.006327575, w: 0.93570805}
     speed: 2
-    m_Value: {x: 0.35485885, y: 0.024460418, z: -0.0063199364, w: 0.9345785}
+    m_Value: {x: -0.35528776, y: -0.024489982, z: 0.006327575, w: -0.93570805}
   m_Size:
     m_Target: 0.68574816
     speed: 2
