@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabaaf67ab8f64140b552c0ce297a6cc, type: 3}
   m_Name: WeakEnemy
   m_EditorClassIdentifier: 
-  MaxHealth: 5
+  MaxHealth: 10
   CoinsDropped: 2
   Speed: 4
+  EnemyType: 1
+  startingHP: 3
+  attackDamage: 0
