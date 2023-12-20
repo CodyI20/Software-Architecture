@@ -1,7 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class represents a type of enemy (Namely the weak enemy).
+/// It derives from the main AbstractEnemy class.
+/// It also uses a different version of the EnemySettings scriptable object.
+/// </summary>
 public class WeakEnemy : AbstractEnemy
 {
     protected override void Awake()
