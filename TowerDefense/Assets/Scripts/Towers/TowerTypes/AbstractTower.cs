@@ -9,8 +9,10 @@ public abstract class AbstractTower : MonoBehaviour
     //SETTINGS
     [SerializeField, Min(0)] private int Damage;
     [SerializeField, Min(0.1f)] private float AttackSpeed;
-    [SerializeField, Range(0,100f)] private float Range;
+    [SerializeField, Range(0, 100f)] private float Range;
     protected TowerType towerType;
+
+    private float attackTime = 0f;
 
     protected abstract void DoAttack();
 
@@ -22,6 +24,7 @@ public abstract class AbstractTower : MonoBehaviour
         {
             if (collider.CompareTag("Enemy"))
             {
+                attackTime = AttackSpeed;
                 // Enemy is in range, perform attack
                 DoAttack();
                 return;
@@ -29,9 +32,26 @@ public abstract class AbstractTower : MonoBehaviour
         }
     }
 
+    private void AttackAfterCD()
+    {
+        if (attackTime <= 0f)
+        {
+            AttackIfInRange();
+        }
+        else
+        {
+            attackTime -= Time.deltaTime;
+        }
+    }
+
     private void Update()
     {
-        AttackIfInRange();
+        AttackAfterCD();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, Range);
     }
 
 }

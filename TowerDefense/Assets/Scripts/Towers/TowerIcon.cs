@@ -11,6 +11,6 @@ public class TowerIcon : MonoBehaviour, IPointerClickHandler
         Debug.Log("CLICKED ON ICON!");
         // Invoke the event that others can listen to
         onTowerPicked?.Invoke(gameObject.name);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }

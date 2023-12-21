@@ -115,12 +115,13 @@ public class TowerSpawner : MonoBehaviour
                 if (name.Contains(tower.name))
                 {
                     Instantiate(tower, transform.position, transform.rotation);
+                    Destroy(gameObject);
                 }
             }
         }
     }
 
-    void LateUpdate()
+    void Update()
     {
         EnableDisableCanvas();
     }
