@@ -54,6 +54,15 @@ public abstract class AbstractEnemy : MonoBehaviour
         target = currentTarget;
     }
 
+    private void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if(currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+    }
+
     protected virtual void TargetReachedActions()
     {
         //Implement all the required logic for when the target is reached!

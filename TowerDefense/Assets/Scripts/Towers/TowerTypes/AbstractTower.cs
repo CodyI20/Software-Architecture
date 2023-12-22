@@ -6,11 +6,12 @@ using UnityEngine;
 public abstract class AbstractTower : MonoBehaviour
 {
     //[SerializeField, Tooltip("Drag in the tower settings")] protected TowerSettingsSO towerSettings;
+    [HideInInspector] public TowerType towerType;
+
     //SETTINGS
     [SerializeField, Min(0)] private int Damage;
     [SerializeField, Min(0.1f)] private float AttackSpeed;
     [SerializeField, Range(0, 100f)] private float Range;
-    public TowerType towerType;
 
     private float attackTime = 0f;
 

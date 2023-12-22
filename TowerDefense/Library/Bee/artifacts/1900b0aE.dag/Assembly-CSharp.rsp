@@ -362,6 +362,7 @@
 "Assets/Scripts/Enemies/EnemyTypes/AbstractEnemy.cs"
 "Assets/Scripts/Enemies/EnemyTypes/EnemyController.cs"
 "Assets/Scripts/Enemies/EnemyTypes/WeakEnemy.cs"
+"Assets/Scripts/Enemies/EnemyUI/HealthBar.cs"
 "Assets/Scripts/Enemies/Spawner/EnemySpawner.cs"
 "Assets/Scripts/Enums/TowerType.cs"
 "Assets/Scripts/Managers/GameManager.cs"
@@ -377,6 +378,7 @@
 "Assets/Scripts/Towers/TowerIcon.cs"
 "Assets/Scripts/Towers/TowerSpawner.cs"
 "Assets/Scripts/Towers/TowerTypes/AbstractTower.cs"
+"Assets/Scripts/Towers/TowerTypes/AreaOfEffectTowerAttacker.cs"
 "Assets/Scripts/Towers/TowerTypes/SingleTargetTowerAttacker.cs"
 -langversion:9.0
 

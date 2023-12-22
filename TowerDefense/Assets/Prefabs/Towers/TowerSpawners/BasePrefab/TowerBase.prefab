@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1867369067769755572}
   - component: {fileID: 1615607188366044806}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TowerBaseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

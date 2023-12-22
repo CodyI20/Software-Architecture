@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3531070105449851888}
   - component: {fileID: 5213444825742252688}
   - component: {fileID: 6362902766465317832}
-  - component: {fileID: 1756054462543951931}
+  - component: {fileID: 1230926891820409029}
   m_Layer: 0
   m_Name: WarlockTower
   m_TagString: Untagged
@@ -108,7 +108,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.52, z: 1}
   m_Center: {x: 0, y: 0.76, z: 0}
---- !u!114 &1756054462543951931
+--- !u!114 &1230926891820409029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,10 +117,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3303146712512408390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f31b1ced2af49e49aeb873badcb872e, type: 3}
+  m_Script: {fileID: 11500000, guid: ec4382ec7cc279047aa36c25bb33021e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 28
-  AttackSpeed: 5
+  Damage: 12
+  AttackSpeed: 1
   Range: 9.6
   towerType: 3
