@@ -10,7 +10,7 @@ public abstract class AbstractTower : MonoBehaviour
     [SerializeField, Min(0)] private int Damage;
     [SerializeField, Min(0.1f)] private float AttackSpeed;
     [SerializeField, Range(0, 100f)] private float Range;
-    protected TowerType towerType;
+    public TowerType towerType;
 
     private float attackTime = 0f;
 

@@ -373,6 +373,7 @@
 "Assets/Scripts/ScriptableObjects/Enemy/WeakEnemySettingsSO.cs"
 "Assets/Scripts/ScriptableObjects/Tower/TowerSpawnerSettingsSO.cs"
 "Assets/Scripts/ScriptableObjects/Tower/TowerTypes/TowerSettingsSO.cs"
+"Assets/Scripts/Towers/TowerCanvasDisabler.cs"
 "Assets/Scripts/Towers/TowerIcon.cs"
 "Assets/Scripts/Towers/TowerSpawner.cs"
 "Assets/Scripts/Towers/TowerTypes/AbstractTower.cs"

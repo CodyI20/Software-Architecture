@@ -78,7 +78,7 @@ public class TowerSpawner : MonoBehaviour
     //    }
     //}
 
-    void EnableDisableCanvas()
+    void EnableCanvas()
     {
         // Check for mouse clicks
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
@@ -96,23 +96,18 @@ public class TowerSpawner : MonoBehaviour
                     // Clicked on the tower base, enable the canvas
                     choiceCanvas.gameObject.SetActive(true);
                 }
-                else
-                {
-                    // Clicked outside the tower base, disable the canvas
-                    choiceCanvas.gameObject.SetActive(false);
-                }
             }
         }
     }
 
-    void SpawnTower(string name)
+    void SpawnTower(TowerType towerType)
     {
         if (choiceCanvas.gameObject.activeSelf)
         {
-            Debug.Log($"The name is: {name}");
-            foreach (GameObject tower in towerSpawnerSO.towerPrefabs)
+            foreach(GameObject tower in towerSpawnerSO.towerPrefabs)
             {
-                if (name.Contains(tower.name))
+                AbstractTower aT = tower.GetComponent<AbstractTower>();
+                if(aT.towerType == towerType)
                 {
                     Instantiate(tower, transform.position, transform.rotation);
                     Destroy(gameObject);
@@ -123,6 +118,6 @@ public class TowerSpawner : MonoBehaviour
 
     void Update()
     {
-        EnableDisableCanvas();
+        EnableCanvas();
     }
 }
