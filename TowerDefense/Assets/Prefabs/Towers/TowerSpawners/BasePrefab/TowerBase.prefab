@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d08ad6722f7084c88f6944a4adca24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerSpawnerSO: {fileID: 0}
+  towerSpawnerSO: {fileID: 11400000, guid: 55d993edc86f3004d92a08a4158c3885, type: 2}
 --- !u!135 &6136551988205070660
 SphereCollider:
   m_ObjectHideFlags: 0
