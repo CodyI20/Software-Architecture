@@ -365,6 +365,7 @@
 "Assets/Scripts/Enemies/EnemyUI/HealthBar.cs"
 "Assets/Scripts/Enemies/Spawner/EnemySpawner.cs"
 "Assets/Scripts/Enums/TowerType.cs"
+"Assets/Scripts/FollowCamera.cs"
 "Assets/Scripts/Managers/GameManager.cs"
 "Assets/Scripts/Pathfinding/Interfaces/IPathFinding.cs"
 "Assets/Scripts/Pathfinding/UnityPathfinder.cs"
