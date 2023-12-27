@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4476777784881658169}
   - component: {fileID: 1334772758657870362}
   - component: {fileID: 1615607188366044806}
+  - component: {fileID: 3290465460622689806}
   m_Layer: 5
   m_Name: TowerBaseCanvas
   m_TagString: Untagged
@@ -137,6 +138,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68a643d5229a7f540a070646c7ad62f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3290465460622689806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874096722445428098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef35bb2786fba234ea3077b7940d6455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2777426135597959966
@@ -269,7 +282,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4f4b4da6c61f61e459048478553fcbd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

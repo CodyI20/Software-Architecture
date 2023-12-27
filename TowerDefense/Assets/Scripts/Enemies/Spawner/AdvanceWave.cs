@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class AdvanceWave : MonoBehaviour, IPointerClickHandler
 {
-    public event Action onWaveAdvance;
+    public static event Action onWaveAdvance;
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("PRESSED THE ADVANCE_WAVE ICON!");
