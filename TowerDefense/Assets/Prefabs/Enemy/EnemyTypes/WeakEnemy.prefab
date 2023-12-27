@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7c281b530d28be34a854a07bc06b98ec, type: 2}
+    - target: {fileID: 4215471593072877503, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215471593072877503, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5803044159826782318, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
       propertyPath: m_Name
       value: WeakEnemy
