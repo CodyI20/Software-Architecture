@@ -17,5 +17,8 @@ MonoBehaviour:
   - {fileID: 3023551378288735181, guid: 64863074ead305f46bd4ae91f1ea230a, type: 3}
   - {fileID: 3023551378288735181, guid: 64863074ead305f46bd4ae91f1ea230a, type: 3}
   - {fileID: 3023551378288735181, guid: 64863074ead305f46bd4ae91f1ea230a, type: 3}
-  spawnInterval: 1
+  - {fileID: 3023551378288735181, guid: 64863074ead305f46bd4ae91f1ea230a, type: 3}
+  - {fileID: 3023551378288735181, guid: 64863074ead305f46bd4ae91f1ea230a, type: 3}
+  - {fileID: 3023551378288735181, guid: 64863074ead305f46bd4ae91f1ea230a, type: 3}
+  spawnInterval: 0.5
   timeUntilWaveStarts: 10

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -6,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public class SingleTargetTowerAttacker : AbstractTower
 {
-    protected override void DoAttack()
+    protected override void DoAttack(Queue<GameObject> enemy)
     {
-        Debug.Log("Attacking!");
+        enemy.Peek().GetComponent<AbstractEnemy>().TakeDamage(towerSettings.Damage);
     }
 }

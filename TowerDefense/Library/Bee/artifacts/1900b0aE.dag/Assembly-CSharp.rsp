@@ -367,6 +367,8 @@
 "Assets/Scripts/Managers/GameManager.cs"
 "Assets/Scripts/Pathfinding/Interfaces/IPathFinding.cs"
 "Assets/Scripts/Pathfinding/UnityPathfinder.cs"
+"Assets/Scripts/Player/Player.cs"
+"Assets/Scripts/Player/PlayerData.cs"
 "Assets/Scripts/ScriptableObjects/Enemy/EnemySpawnerSettingsSO.cs"
 "Assets/Scripts/ScriptableObjects/Enemy/EnemyTypes/BossEnemySettingsSO.cs"
 "Assets/Scripts/ScriptableObjects/Enemy/EnemyTypes/EnemySettingsSO.cs"
@@ -380,6 +382,9 @@
 "Assets/Scripts/Towers/TowerTypes/AbstractTower.cs"
 "Assets/Scripts/Towers/TowerTypes/AreaOfEffectTowerAttacker.cs"
 "Assets/Scripts/Towers/TowerTypes/SingleTargetTowerAttacker.cs"
+"Assets/Scripts/UI/AbstractUIText.cs"
+"Assets/Scripts/UI/CoinsUIText.cs"
+"Assets/Scripts/UI/HealthUIText.cs"
 "Assets/Scripts/Utility/DisableCanvasWhenClickedOutside.cs"
 "Assets/Scripts/Utility/FollowCamera.cs"
 -langversion:9.0

@@ -1,9 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AreaOfEffectTowerAttacker : AbstractTower
 {
-    protected override void DoAttack()
+    protected override void DoAttack(Queue<GameObject> enemies)
     {
-        Debug.Log("Doing AOE attack");
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<AbstractEnemy>().TakeDamage(towerSettings.Damage);
+        }
     }
 }

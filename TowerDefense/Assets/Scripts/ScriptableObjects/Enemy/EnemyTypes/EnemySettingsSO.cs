@@ -8,7 +8,8 @@ using UnityEngine;
 /// </summary>
 public abstract class EnemySettingsSO : ScriptableObject
 {
-    public int MaxHealth;
-    public int CoinsDropped;
-    public float Speed;
+    [Min(1)] public int MaxHealth;
+    [Min(0)] public int CoinsDropped;
+    [Min(0)] public int DamageToBase;
+    [Min(0)] public float Speed;
 }

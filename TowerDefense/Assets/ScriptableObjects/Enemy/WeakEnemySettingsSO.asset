@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WeakEnemySettingsSO
   m_EditorClassIdentifier: 
   MaxHealth: 10
-  CoinsDropped: 3
+  CoinsDropped: 100
+  DamageToBase: 1
   Speed: 4
-  startingHP: 10
+  startingHP: 5

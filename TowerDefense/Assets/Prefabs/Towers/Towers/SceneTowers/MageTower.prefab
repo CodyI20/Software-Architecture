@@ -120,7 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f31b1ced2af49e49aeb873badcb872e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
-  AttackSpeed: 2
-  Range: 10.1
-  towerType: 1
+  _towerType: 1
+  towerSettings: {fileID: 11400000, guid: bf209f55539a556488c403891233dfa9, type: 2}

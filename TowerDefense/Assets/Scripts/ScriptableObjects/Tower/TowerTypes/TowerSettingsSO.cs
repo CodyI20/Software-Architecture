@@ -6,8 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TowerSettings", menuName = "ScriptableObjects/TowerSettings/TowerSettings", order = 2)]
 public class TowerSettingsSO : ScriptableObject
 {
-    [HideInInspector] public TowerType towerType;
-    public int Damage;
-    public float AttackSpeed;
-    public float Range;
+    //public TowerType towerType;
+    [Min(0)] public int Damage;
+    [Min(0.1f)] public float AttackSpeed;
+    [Range(0,30f)] public float Range;
+    [Min(0)] public int Cost;
 }

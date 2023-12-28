@@ -107,7 +107,7 @@ public class TowerSpawner : MonoBehaviour
             foreach(GameObject tower in towerSpawnerSO.towerPrefabs)
             {
                 AbstractTower aT = tower.GetComponent<AbstractTower>();
-                if(aT.towerType == towerType)
+                if(aT.towerType == towerType && Player.playerInstance.SpendCoins(aT.TowerSettings.Cost))
                 {
                     Instantiate(tower, transform.position, transform.rotation);
                     Destroy(gameObject);

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +10,10 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyController))]
 public abstract class AbstractEnemy : MonoBehaviour
 {
+    public static event Action<int> onEnemyDeath;
+    public static event Action<int> onEnemyReachedBase;
+    public event Action<float,float> onEnemyHealthChange;
+
     [SerializeField, Tooltip("Drag in the ScriptableObject with the enemy settings")] protected EnemySettingsSO settings;
     public int currentHealth { get; protected set; }
 
@@ -24,7 +29,10 @@ public abstract class AbstractEnemy : MonoBehaviour
         }
         controller = GetComponent<EnemyController>();
         controller.SetEnemySpeed(settings.Speed);
-        SetCurrentHealth(settings.MaxHealth);
+    }
+    private void Start()
+    {
+        CurrentHealthSetAnnouncement(settings.MaxHealth);
     }
 
     private void OnEnable()
@@ -47,6 +55,16 @@ public abstract class AbstractEnemy : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    /// <summary>
+    /// This function is used solely for the purpose of broadcasting the event
+    /// </summary>
+    /// <param name="maxHealth"></param>
+    private void CurrentHealthSetAnnouncement(int maxHealth)
+    {
+        SetCurrentHealth(maxHealth);
+        onEnemyHealthChange?.Invoke(maxHealth, currentHealth);
+    }
+
     //This method is made public so that the enemy can easily assign its target on the go during the game.
     //(for example if there are ground enemies that he has to stop and fight)
     public void AssignTarget(Transform currentTarget)
@@ -54,19 +72,22 @@ public abstract class AbstractEnemy : MonoBehaviour
         target = currentTarget;
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if(currentHealth < 0)
+        if(currentHealth <= 0)
         {
             currentHealth = 0;
+            onEnemyDeath?.Invoke(settings.CoinsDropped);
+            Destroy(gameObject);
         }
+        onEnemyHealthChange?.Invoke(settings.MaxHealth,currentHealth);
     }
 
     protected virtual void TargetReachedActions()
     {
         //Implement all the required logic for when the target is reached!
-
+        onEnemyReachedBase?.Invoke(settings.DamageToBase);
         Destroy(gameObject);
     }
 }
