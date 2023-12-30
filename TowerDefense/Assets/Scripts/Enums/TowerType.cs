@@ -2,6 +2,6 @@ public enum TowerType
 {
     DEFAULT,
     MAGE,
-    ARCHER,
+    CATAPULT,
     WARLOCK
 }

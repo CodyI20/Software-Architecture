@@ -34,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6609371595615041794, guid: 59f9f42ada4a46b44b311673526260b7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6609371595615041794, guid: 59f9f42ada4a46b44b311673526260b7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6609371595615041794, guid: 59f9f42ada4a46b44b311673526260b7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 6609371595615041794, guid: 59f9f42ada4a46b44b311673526260b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269906173726123568, guid: 59f9f42ada4a46b44b311673526260b7, type: 3}
+      propertyPath: towerCost
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7269906173726123568, guid: 59f9f42ada4a46b44b311673526260b7, type: 3}
       propertyPath: _towerType

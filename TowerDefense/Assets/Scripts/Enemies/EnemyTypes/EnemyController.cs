@@ -1,3 +1,4 @@
+using UnityEditor.U2D;
 using UnityEngine;
 
 /// <summary>
@@ -13,6 +14,8 @@ public class EnemyController : MonoBehaviour
 
     private IPathFinding pathFinder;
 
+    private float maximumSpeed = 1.7f;
+    private float initialSpeed = 1.7f;
     private float speed = 1.7f;
     private Transform target;
     private bool hasReachedFinalTarget = false;
@@ -42,6 +45,28 @@ public class EnemyController : MonoBehaviour
     public void SetEnemySpeed(float eSpeed)
     {
         speed = eSpeed;
+        initialSpeed = eSpeed;
+        maximumSpeed = eSpeed;
+    }
+
+    public void ReduceEnemySpeed(float amount)
+    {
+        speed -= amount;
+    }
+
+    public void ResetEnemySpeed()
+    {
+        speed = initialSpeed;
+    }
+
+    public void ModifyMaximumSpeed(float amount, bool addition = true, bool alsoSetCurrentSpeed = false)
+    {
+        if (addition)
+            maximumSpeed += amount;
+        else
+            maximumSpeed -= amount;
+        if (alsoSetCurrentSpeed)
+            speed = maximumSpeed;
     }
 
     void CheckTargetReached()

@@ -9,5 +9,5 @@ using UnityEngine.UI;
 public class TowerSpawnerSettingsSO : ScriptableObject
 {
     [Tooltip("Drag in the tower prefabs!")] public GameObject[] towerPrefabs;
-    [Tooltip("Drag in the tower shop icons")] public Image[] towerIcons;
+    [Tooltip("Drag in the tower shop icons")] public GameObject[] towerIcons;
 }

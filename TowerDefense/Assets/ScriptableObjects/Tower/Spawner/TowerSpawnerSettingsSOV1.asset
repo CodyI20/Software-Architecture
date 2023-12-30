@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 4549597833030128575, guid: 0df92a6ed70d8ad4d931bc9889f82be0, type: 3}
   - {fileID: 3303146712512408390, guid: 4f20aa564d68fa34ab04fc680e49a20e, type: 3}
   towerIcons:
-  - {fileID: 2268711006134763267, guid: b0b007e896f66da46be09093a83cc609, type: 3}
-  - {fileID: 5356054014210425994, guid: 69efe2c54bb7a0d468e02686247d36fb, type: 3}
+  - {fileID: 2085180911843923623, guid: b0b007e896f66da46be09093a83cc609, type: 3}
+  - {fileID: 5321177651470069038, guid: 69efe2c54bb7a0d468e02686247d36fb, type: 3}

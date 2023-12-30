@@ -382,6 +382,7 @@
 "Assets/Scripts/Towers/TowerTypes/AbstractTower.cs"
 "Assets/Scripts/Towers/TowerTypes/AreaOfEffectTowerAttacker.cs"
 "Assets/Scripts/Towers/TowerTypes/SingleTargetTowerAttacker.cs"
+"Assets/Scripts/Towers/TowerTypes/SlowingAttacker.cs"
 "Assets/Scripts/UI/AbstractUIText.cs"
 "Assets/Scripts/UI/CoinsUIText.cs"
 "Assets/Scripts/UI/HealthUIText.cs"

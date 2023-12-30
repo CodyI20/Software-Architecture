@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public abstract class AbstractTower : MonoBehaviour
 {
+    public static event Action onTowerAttack;
     [SerializeField] private TowerType _towerType;
     public TowerType towerType
     {
@@ -34,6 +36,7 @@ public abstract class AbstractTower : MonoBehaviour
         if(enemyColliders.Count > 0)
         {
             attackTime = towerSettings.AttackSpeed;
+            onTowerAttack?.Invoke();
             DoAttack(enemyColliders);
         }
     }
