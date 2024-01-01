@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /// <summary>
 /// This class is the manager of the entire game.
 /// It holds information about the general stuff such as runtime playback speed, pause, scene load and reload.
@@ -58,6 +59,11 @@ public class GameManager : MonoBehaviour
         if (muteAudioOnPause)
             AudioListener.pause = !AudioListener.pause;
         Time.timeScale = 1.0f - Time.timeScale;
+    }
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnDestroy()

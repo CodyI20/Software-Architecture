@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
         {
             //Implement logic for when the health reaches 0 or below
             Debug.Log("GAME OVER!");
+            GameManager.gameManagerInstance.ReloadCurrentScene();
         }
         onHealthChanged?.Invoke(health);
     }

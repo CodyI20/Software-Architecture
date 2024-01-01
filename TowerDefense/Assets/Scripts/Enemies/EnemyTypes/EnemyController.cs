@@ -1,4 +1,3 @@
-using UnityEditor.U2D;
 using UnityEngine;
 
 /// <summary>
@@ -17,6 +16,7 @@ public class EnemyController : MonoBehaviour
     private float maximumSpeed = 1.7f;
     private float initialSpeed = 1.7f;
     private float speed = 1.7f;
+    private bool speedIsReduced = false;
     private Transform target;
     private bool hasReachedFinalTarget = false;
 
@@ -42,29 +42,49 @@ public class EnemyController : MonoBehaviour
     /// Sets the speed at which each enemy advances
     /// </summary>
     /// <param name="speed"></param>
-    public void SetEnemySpeed(float eSpeed)
+    public void SetInitialEnemySpeed(float eSpeed)
     {
         speed = eSpeed;
         initialSpeed = eSpeed;
         maximumSpeed = eSpeed;
     }
 
+    public void SetEnemySpeed(float eSpeed)
+    {
+        speed = eSpeed;
+    }
+
+    /// <summary>
+    /// This method will decrease the speed of the enemy by the percentage indicated by the <paramref name="amount"/> parameter
+    /// </summary>
+    /// <param name="amount"></param>
     public void ReduceEnemySpeed(float amount)
     {
-        speed -= amount;
+        if (!speedIsReduced)
+        {
+            speed -= speed * amount / 100.0f;
+            speedIsReduced = true;
+        }
     }
 
     public void ResetEnemySpeed()
     {
         speed = initialSpeed;
+        speedIsReduced = false;
     }
 
+    /// <summary>
+    /// This method uses percentages to increase or decrease the movement speed;
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <param name="addition"></param>
+    /// <param name="alsoSetCurrentSpeed"></param>
     public void ModifyMaximumSpeed(float amount, bool addition = true, bool alsoSetCurrentSpeed = false)
     {
         if (addition)
-            maximumSpeed += amount;
+            maximumSpeed += maximumSpeed * amount/100.0f;
         else
-            maximumSpeed -= amount;
+            maximumSpeed -= maximumSpeed * amount / 100.0f;
         if (alsoSetCurrentSpeed)
             speed = maximumSpeed;
     }
@@ -82,6 +102,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         pathFinder.MoveTowardsTarget(target.position, speed);
+        ResetEnemySpeed();
         if (!hasReachedFinalTarget)
             CheckTargetReached();
     }

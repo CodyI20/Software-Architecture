@@ -8,6 +8,6 @@ public class TowerSettingsSO : ScriptableObject
 {
     //public TowerType towerType;
     [Min(0)] public int Damage;
-    [Min(0.1f)] public float AttackSpeed;
+    [Min(0f)] public float AttackSpeed;
     [Range(0,30f)] public float Range;
 }

@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: _towerType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7269906173726123568, guid: 59f9f42ada4a46b44b311673526260b7, type: 3}
+      propertyPath: towerSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: bf209f55539a556488c403891233dfa9, type: 2}
     - target: {fileID: 8942586014730800506, guid: 59f9f42ada4a46b44b311673526260b7, type: 3}
       propertyPath: m_Name
       value: MageTower

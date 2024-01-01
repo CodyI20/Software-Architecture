@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 public class TowerSpawner : MonoBehaviour
 {
-    [SerializeField, Tooltip("Drag in the tower settings scriptable object!")] private TowerSpawnerSettingsSO towerSpawnerSO;
+    [SerializeField, Tooltip("Drag in the tower spanwer settings scriptable object!")] private TowerSpawnerSettingsSO towerSpawnerSO;
     private Canvas choiceCanvas;
 
     private void Awake()
@@ -101,16 +101,21 @@ public class TowerSpawner : MonoBehaviour
         }
     }
 
-    void SpawnTower(TowerType towerType)
+    void SpawnTower(TowerType towerType, TowerSettingsSO towerSettings)
     {
+        //Check if the canvas is active ( for making sure the static event doesn't trigger for all the spawners at once)
         if (choiceCanvas.gameObject.activeSelf)
         {
+            //Go through all the towers
             foreach(GameObject tower in towerSpawnerSO.towerPrefabs)
             {
+                //Check if the type is the same as the one from the icon
                 AbstractTower aT = tower.GetComponent<AbstractTower>();
                 if(aT.towerType == towerType)
                 {
+                    //Spawn the tower at that position and with that rotation
                     Instantiate(tower, transform.position, transform.rotation);
+                    aT.towerSettings = towerSettings;
                     Destroy(gameObject);
                 }
             }

@@ -16,7 +16,7 @@ public class TowerCanvasDisabler : MonoBehaviour
         TowerIcon.onTowerPicked -= DisableCanvas;
     }
 
-    void DisableCanvas(TowerType tt)
+    void DisableCanvas(TowerType tt, TowerSettingsSO ss)
     {
         gameObject.SetActive(false);
     }

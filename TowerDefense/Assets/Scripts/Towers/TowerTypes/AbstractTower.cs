@@ -7,18 +7,42 @@ using UnityEngine;
 /// </summary>
 public abstract class AbstractTower : MonoBehaviour
 {
-    public static event Action onTowerAttack;
     [SerializeField] private TowerType _towerType;
     public TowerType towerType
     {
         get { return _towerType;}
     }
+    //private Canvas canvas;
 
     //SETTINGS
-    [SerializeField, Tooltip("Drag in the tower settings")] protected TowerSettingsSO towerSettings;
-    public TowerSettingsSO TowerSettings { get { return towerSettings;} }
+    public TowerSettingsSO towerSettings;
+    //[SerializeField, Tooltip("Drag in the tower upgrader settings scriptable object!")] private TowerSpawnerSettingsSO towerUpgraderSettings;
+    //public TowerSettingsSO TowerSettings { get { return towerSettings;} }
 
     private float attackTime = 0f;
+
+    //private void Awake()
+    //{
+    //    if (towerUpgraderSettings == null)
+    //    {
+    //        throw new Exception("The mandatory scriptable object is missing from this prefab! Please drag in the TowerSpawnerSettingsSO file!");
+    //    }
+    //    SetupCanvas();
+    //}
+
+    //void SetupCanvas()
+    //{
+    //    canvas = GetComponentInChildren<Canvas>();
+    //    if(canvas == null)
+    //    {
+    //        throw new Exception($"The canvas component on the Tower: {gameObject.name} cannot be found!");
+    //    }
+    //    canvas.gameObject.SetActive(false);
+    //    foreach(GameObject upgradeImage in towerUpgraderSettings.towerIcons)
+    //    {
+    //        Instantiate(upgradeImage, canvas.transform);
+    //    }
+    //}
     protected abstract void DoAttack(Queue<GameObject> enemies);
 
     private void AttackIfInRange()
@@ -36,7 +60,6 @@ public abstract class AbstractTower : MonoBehaviour
         if(enemyColliders.Count > 0)
         {
             attackTime = towerSettings.AttackSpeed;
-            onTowerAttack?.Invoke();
             DoAttack(enemyColliders);
         }
     }

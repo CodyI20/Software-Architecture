@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4566169309290487469}
   - component: {fileID: 4845282629581437240}
+  - component: {fileID: -8406682250970282742}
   m_Layer: 0
   m_Name: CatapultTower
   m_TagString: Untagged
@@ -223,3 +224,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4598474, y: 0.3149618, z: 0.4598474}
   m_Center: {x: 0, y: 0.1574809, z: 0}
+--- !u!114 &-8406682250970282742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3775415947842856849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c4843d32fc13a40afcee1dcbcebad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _towerType: 2
+  towerSettings: {fileID: 11400000, guid: c7110bbf797683941998c6f506bf0262, type: 2}

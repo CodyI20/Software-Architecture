@@ -28,7 +28,7 @@ public abstract class AbstractEnemy : MonoBehaviour
             throw new System.Exception("No settings file found! Assign one in the inspector!");
         }
         controller = GetComponent<EnemyController>();
-        controller.SetEnemySpeed(settings.Speed);
+        controller.SetInitialEnemySpeed(settings.Speed);
     }
     private void Start()
     {
