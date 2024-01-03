@@ -806,6 +806,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8450529111763988979, guid: 7d86655184bde3f4dae8f0886f92aba9, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8882854491920352022, guid: 7d86655184bde3f4dae8f0886f92aba9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

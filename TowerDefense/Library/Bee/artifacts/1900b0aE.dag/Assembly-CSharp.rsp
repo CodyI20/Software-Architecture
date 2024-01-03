@@ -359,6 +359,7 @@
 "Assets/Scripts/Enemies/EnemyTypes/AbstractEnemy.cs"
 "Assets/Scripts/Enemies/EnemyTypes/EnemyController.cs"
 "Assets/Scripts/Enemies/EnemyTypes/WeakEnemy.cs"
+"Assets/Scripts/Enemies/EnemyUI/EnemyMoneyGainedUI.cs"
 "Assets/Scripts/Enemies/EnemyUI/HealthBar.cs"
 "Assets/Scripts/Enemies/Spawner/AdvanceWave.cs"
 "Assets/Scripts/Enemies/Spawner/EnemySpawner.cs"
@@ -387,6 +388,8 @@
 "Assets/Scripts/UI/AbstractUIText.cs"
 "Assets/Scripts/UI/CoinsUIText.cs"
 "Assets/Scripts/UI/HealthUIText.cs"
+"Assets/Scripts/Utility/DestroyAfterSeconds.cs"
+"Assets/Scripts/Utility/DestroyRangeSphere.cs"
 "Assets/Scripts/Utility/DisableCanvasWhenClickedOutside.cs"
 "Assets/Scripts/Utility/FollowCamera.cs"
 -langversion:9.0

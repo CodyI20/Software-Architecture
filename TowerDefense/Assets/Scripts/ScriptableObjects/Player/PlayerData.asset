@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   StartingHealth: 10
-  StartingCoins: 100000
+  StartingCoins: 100

@@ -706,7 +706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCost: 0
+  towerSettings: {fileID: 0}
   statsBackground: {fileID: 8999278230405560807}
+  rangeSphere: {fileID: 413412516530291919, guid: 92c27703647984446913c7efc0dab323, type: 3}
   _towerType: 0
 --- !u!1 &9129264830257571631
 GameObject:

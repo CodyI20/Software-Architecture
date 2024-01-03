@@ -19,6 +19,7 @@ public abstract class AbstractEnemy : MonoBehaviour
 
     protected Transform target;
 
+    [SerializeField, Tooltip("Drag in the canvas for the money dropped")] private Canvas moneyDroppedUI;
     private EnemyController controller;
 
     protected virtual void Awake()
@@ -26,6 +27,10 @@ public abstract class AbstractEnemy : MonoBehaviour
         if(settings == null)
         {
             throw new System.Exception("No settings file found! Assign one in the inspector!");
+        }
+        if(moneyDroppedUI == null)
+        {
+            throw new Exception("The canvas for the money dropped cannot be found!");
         }
         controller = GetComponent<EnemyController>();
         controller.SetInitialEnemySpeed(settings.Speed);
@@ -78,6 +83,7 @@ public abstract class AbstractEnemy : MonoBehaviour
         if(currentHealth <= 0)
         {
             currentHealth = 0;
+            Instantiate(moneyDroppedUI, transform.position, Quaternion.identity);
             onEnemyDeath?.Invoke(settings.CoinsDropped);
             Destroy(gameObject);
         }

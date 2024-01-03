@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2027879127915161338}
   - component: {fileID: 4476777784881658169}
   - component: {fileID: 1334772758657870362}
-  - component: {fileID: 1615607188366044806}
   - component: {fileID: 3290465460622689806}
   m_Layer: 5
   m_Name: TowerBaseCanvas
@@ -128,18 +127,6 @@ MonoBehaviour:
   m_Spacing: {x: 90, y: 45}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &1615607188366044806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874096722445428098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a643d5229a7f540a070646c7ad62f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3290465460622689806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerSpawnerSO: {fileID: 11400000, guid: 55d993edc86f3004d92a08a4158c3885, type: 2}
+  rangeSphere: {fileID: 413412516530291919, guid: 92c27703647984446913c7efc0dab323, type: 3}
 --- !u!135 &1328149267043514999
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3375680891316956894, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375680891316956894, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4159443607037442902, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -90,3 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 71e594d6c8ad9b3428aa688525a868a6, type: 2}
+  moneyDroppedUI: {fileID: 3071297323762012168, guid: 4d48582dc63eb6c499b3a28c04a57c65, type: 3}

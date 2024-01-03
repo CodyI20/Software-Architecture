@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     }
     public bool SpendCoins(int amount)
     {
-        if (coins - amount >= 0)
+        if (coins >= amount)
         {
             coins -= amount;
             onCoinsChanged?.Invoke(coins);

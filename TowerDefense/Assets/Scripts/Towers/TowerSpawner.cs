@@ -1,7 +1,5 @@
-using System.Collections;
-using TMPro;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// This class is responsible for the logic behind clicking a tower base and spawning the selected tower type
@@ -11,6 +9,7 @@ using UnityEngine.UI;
 public class TowerSpawner : MonoBehaviour
 {
     [SerializeField, Tooltip("Drag in the tower spanwer settings scriptable object!")] private TowerSpawnerSettingsSO towerSpawnerSO;
+    [SerializeField, Tooltip("Drag in the RangeSphere prefab")] private GameObject rangeSphere;
     private Canvas choiceCanvas;
 
     private void Awake()
@@ -19,17 +18,27 @@ public class TowerSpawner : MonoBehaviour
         {
             throw new System.Exception("The mandatory scriptable object is missing from this prefab! Please drag in the TowerSpawnerSettingsSO file!");
         }
+        if (rangeSphere == null)
+        {
+            throw new Exception("The prefab for the range sphere is not assigned!");
+        }
+        if (!rangeSphere.CompareTag("RangeSphere"))
+        {
+            throw new Exception("The prefab dragged in is not a RangeSphere!");
+        }
         SetupCanvas();
     }
 
     private void OnEnable()
     {
         TowerIcon.onTowerPicked += SpawnTower;
+        TowerIcon.onIconHoverEnter += SetTheRangeSphere;
     }
 
     private void OnDisable()
     {
         TowerIcon.onTowerPicked -= SpawnTower;
+        TowerIcon.onIconHoverEnter -= SetTheRangeSphere;
     }
 
     void SetupCanvas()
@@ -107,11 +116,11 @@ public class TowerSpawner : MonoBehaviour
         if (choiceCanvas.gameObject.activeSelf)
         {
             //Go through all the towers
-            foreach(GameObject tower in towerSpawnerSO.towerPrefabs)
+            foreach (GameObject tower in towerSpawnerSO.towerPrefabs)
             {
                 //Check if the type is the same as the one from the icon
                 AbstractTower aT = tower.GetComponent<AbstractTower>();
-                if(aT.towerType == towerType)
+                if (aT.towerType == towerType)
                 {
                     //Spawn the tower at that position and with that rotation
                     Instantiate(tower, transform.position, transform.rotation);
@@ -119,6 +128,15 @@ public class TowerSpawner : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+        }
+    }
+
+    void SetTheRangeSphere(TowerSettingsSO towerSettings)
+    {
+        if (choiceCanvas.gameObject.activeSelf)
+        {
+            rangeSphere.transform.localScale = new Vector3(towerSettings.Range, towerSettings.Range, towerSettings.Range) * 2;
+            Instantiate(rangeSphere, transform.position, Quaternion.identity);
         }
     }
 
