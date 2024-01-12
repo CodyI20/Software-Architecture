@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class SingleTargetTowerAttacker : AbstractTower
 {
+    //private void Awake()
+    //{
+    //    towerType = TowerType.MAGE;
+    //}
     //Implement a way to randomly attack a target from the queue rather than the first one
     //And an option to choose which target to attack
     protected override void DoAttack(Queue<GameObject> enemy)

@@ -1,9 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-/// <summary>
-/// This class is the manager of the entire game.
-/// It holds information about the general stuff such as runtime playback speed, pause, scene load and reload.
-/// </summary>
 
 public enum GameState
 {
@@ -11,10 +7,9 @@ public enum GameState
     Playing = 1,
     Interrupted = 2
 }
-public class GameManager : MonoBehaviour
+
+public class GameManager : Singleton<GameManager>
 {
-    //Singleton pattern for quick and easy access to the GameManager class
-    public static GameManager gameManagerInstance { get; private set; }
     //Public variables
     public GameState gameState { get; private set; }
 
@@ -22,20 +17,12 @@ public class GameManager : MonoBehaviour
     [SerializeField, Tooltip("The key to press in order to pause the game")] private KeyCode pauseKey = KeyCode.Escape;
     [SerializeField, Tooltip("Whether or not to also disable the Audio while the game is paused")] private bool muteAudioOnPause = true;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         gameState = GameState.Playing; //Could add functionality for when the game starts while Paused (weird concept)
-        if (gameManagerInstance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            gameManagerInstance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,9 +39,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void SwitchGamePause()
+    public void SwitchGamePause()
     {
-        gameState = (gameState==GameState.Paused) ? GameState.Playing : GameState.Paused;
+        gameState = (gameState == GameState.Paused) ? GameState.Playing : GameState.Paused;
 
         if (muteAudioOnPause)
             AudioListener.pause = !AudioListener.pause;
@@ -64,11 +51,5 @@ public class GameManager : MonoBehaviour
     public void ReloadCurrentScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    private void OnDestroy()
-    {
-        if(gameManagerInstance == this)
-            gameManagerInstance = null;
     }
 }

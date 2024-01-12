@@ -1,4 +1,3 @@
-using Palmmedia.ReportGenerator.Core;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +11,15 @@ public class EnemySpawner : MonoBehaviour
 {
     //PUBLIC VARIABLES:
     public static event Action onWaveFinished;
+    public static int waveNumber = 1;
+
+    //Calculate the number of waves in the array
+    public int NumberOfWaves
+    {
+        get { return Wave.Length; }
+    }
+
+    public int MaxNumberOfWaves { get; private set; }
 
     //PRIVATE, SERIALIZED VARIABLES:
     [SerializeField, Tooltip("Drag in the spawner settings scriptable object for this specific spawn point")] private EnemySpawnerSettingsSO[] Wave;
@@ -20,7 +28,6 @@ public class EnemySpawner : MonoBehaviour
     //PRIVATE, NON-SERIALIZED VARIABLES:
     private float spawnIntervalAux = 0f;
     private int numberOfEnemyToSpawn = 0;
-    private int waveNumber = 0;
     private float timeSinceWaveFinished = 0f;
 
     private GameObject canvas;
@@ -40,10 +47,11 @@ public class EnemySpawner : MonoBehaviour
         }
         else
             canvas.SetActive(false);
-        if(waveSlider == null)
+        if (waveSlider == null)
         {
             throw new Exception("The slider was not found as a component of this object's children");
         }
+        waveNumber = 1;
     }
 
     private void OnEnable()
@@ -59,14 +67,14 @@ public class EnemySpawner : MonoBehaviour
     /// Create a time stamp for when the enemy which is next in queue is spawned and instantiate it
     void SpawnEnemy()
     {
-        spawnIntervalAux = Wave[waveNumber].spawnInterval;
-        Instantiate(Wave[waveNumber].enemiesInWave[numberOfEnemyToSpawn], transform.position, transform.rotation);
+        spawnIntervalAux = Wave[waveNumber - 1].spawnInterval;
+        Instantiate(Wave[waveNumber - 1].enemiesInWave[numberOfEnemyToSpawn], transform.position, transform.rotation);
         numberOfEnemyToSpawn += 1;
     }
 
     bool CurrentWaveFinished()
     {
-        if (numberOfEnemyToSpawn >= Wave[waveNumber].enemiesInWave.Length)
+        if (numberOfEnemyToSpawn >= Wave[waveNumber - 1].enemiesInWave.Length)
         {
             return true;
         }
@@ -75,18 +83,18 @@ public class EnemySpawner : MonoBehaviour
 
     bool CanAdvanceWave()
     {
-        if (waveNumber + 1 >= Wave.Length)
+        if (waveNumber >= Wave.Length)
             return false;
         return true;
     }
 
     void CallNextWave()
     {
-        onWaveFinished?.Invoke();
         numberOfEnemyToSpawn = 0;
         waveNumber += 1;
         timeSinceWaveFinished = 0f;
         waveSlider.value = 0f;
+        onWaveFinished?.Invoke();
         Debug.Log($"SPAWNING NEXT WAVE...{waveNumber}");
     }
 
@@ -96,8 +104,8 @@ public class EnemySpawner : MonoBehaviour
         {
             canvas.SetActive(true);
             timeSinceWaveFinished += Time.deltaTime;
-            waveSlider.value = timeSinceWaveFinished / Wave[waveNumber+1].timeUntilWaveStarts;
-            if (timeSinceWaveFinished >= Wave[waveNumber + 1].timeUntilWaveStarts)
+            waveSlider.value = timeSinceWaveFinished / Wave[waveNumber].timeUntilWaveStarts;
+            if (timeSinceWaveFinished >= Wave[waveNumber].timeUntilWaveStarts)
             {
                 CallNextWave();
             }
@@ -125,6 +133,12 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        onWaveFinished?.Invoke();
+        MaxNumberOfWaves = 0;
+        foreach (var spawner in FindObjectsOfType<EnemySpawner>())
+        {
+            MaxNumberOfWaves = Mathf.Max(MaxNumberOfWaves, spawner.NumberOfWaves);
+        }
     }
 
 

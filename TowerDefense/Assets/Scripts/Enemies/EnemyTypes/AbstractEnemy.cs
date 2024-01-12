@@ -8,7 +8,7 @@ using UnityEngine;
 /// For example a method that finds the target and assigns it to a variable.
 /// </summary>
 [RequireComponent(typeof(EnemyController))]
-public abstract class AbstractEnemy : MonoBehaviour
+public abstract class AbstractEnemy : MonoBehaviour, IDamageable
 {
     public static event Action<int> onEnemyDeath;
     public static event Action<int> onEnemyReachedBase;

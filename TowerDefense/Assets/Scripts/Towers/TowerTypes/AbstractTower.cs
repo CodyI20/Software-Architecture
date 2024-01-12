@@ -15,7 +15,7 @@ public abstract class AbstractTower : MonoBehaviour
     //private Canvas canvas;
 
     //SETTINGS
-    public TowerSettingsSO towerSettings;
+    [HideInInspector] public TowerSettingsSO towerSettings;
     //[SerializeField, Tooltip("Drag in the tower upgrader settings scriptable object!")] private TowerSpawnerSettingsSO towerUpgraderSettings;
     //public TowerSettingsSO TowerSettings { get { return towerSettings;} }
 

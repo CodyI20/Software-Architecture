@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8de7e466c53b44d9a9fa245679cc6f, type: 3}
   m_Name: MageTowerSettings
   m_EditorClassIdentifier: 
+  initialDamage: 2
+  initialAttackSpeed: 10
+  initialRange: 3.6
   Damage: 2
-  AttackSpeed: 0.5
-  Range: 3.5
-  Cost: 40
+  AttackSpeed: 10
+  Range: 3.6

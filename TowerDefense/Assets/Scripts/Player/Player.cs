@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
         health = data.StartingHealth;
         onHealthChanged?.Invoke(health);
     }
+
     public bool SpendCoins(int amount)
     {
         if (coins >= amount)
@@ -69,7 +70,7 @@ public class Player : MonoBehaviour
         {
             //Implement logic for when the health reaches 0 or below
             Debug.Log("GAME OVER!");
-            GameManager.gameManagerInstance.ReloadCurrentScene();
+            GameManager.Instance.ReloadCurrentScene();
         }
         onHealthChanged?.Invoke(health);
     }
