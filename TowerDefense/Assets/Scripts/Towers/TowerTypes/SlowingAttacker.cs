@@ -8,7 +8,7 @@ public class SlowingAttacker : AbstractTower
         Debug.Log("SLOWING ATTACK!");
         foreach (GameObject enemy in enemies)
         {
-            enemy.GetComponent<EnemyController>().ReduceEnemySpeed(((SlowTowerSettingsSO)towerStats.towerSettings).SlowPercentage);
+            enemy.GetComponent<EnemyController>().ReduceEnemySpeed(((SlowTowerSettingsSO)towerSettings).SlowPercentage);
         }
     }
 }

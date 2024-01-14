@@ -116,7 +116,7 @@ public class TowerSpawner : MonoBehaviour
         if (choiceCanvas.gameObject.activeSelf)
         {
             Instantiate(towerPrefab, transform.position, transform.rotation);
-            towerPrefab.GetComponent<TowerStats>().towerSettings = towerSettings;
+            towerPrefab.GetComponent<AbstractTower>().towerSettings = towerSettings;
             Destroy(gameObject);
         }
     }

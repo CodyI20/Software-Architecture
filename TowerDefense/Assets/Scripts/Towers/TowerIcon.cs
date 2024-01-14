@@ -54,7 +54,7 @@ public class TowerIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
         UIDisplays[0].text = $"Type: {TowerType}";
         UIDisplays[1].text = $"Cost: {towerCost}";
         UIDisplays[2].text = $"Damage: {towerSettings.Damage}";
-        UIDisplays[3].text = $"Fire rate: {towerSettings.AttackSpeed}";
+        UIDisplays[3].text = $"Fire rate: {towerSettings.AttackDelay}";
         UIDisplays[4].text = $"Range: {towerSettings.Range}";
     }
 

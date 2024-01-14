@@ -40,7 +40,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.1459961, y: 2.1803284}
+  m_AnchoredPosition: {x: 0.1459961, y: 2.73}
   m_SizeDelta: {x: 1732.9999, y: 817}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1949873982362367626
@@ -413,7 +413,6 @@ GameObject:
   - component: {fileID: 7475239664725228796}
   - component: {fileID: 2848414044835770323}
   - component: {fileID: 634272491495693094}
-  - component: {fileID: 4081119642958418985}
   - component: {fileID: 3999090377479972965}
   m_Layer: 0
   m_Name: MageTower
@@ -523,20 +522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f31b1ced2af49e49aeb873badcb872e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towerType: 1
   towerSettings: {fileID: 11400000, guid: bf209f55539a556488c403891233dfa9, type: 2}
---- !u!114 &4081119642958418985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4549597833030128575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1a273cd4e6de145ae7a7438fe95318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _towerType: 1
 --- !u!114 &3999090377479972965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageUpgradeCommand: {fileID: 11400000, guid: 1404fd2a20f323e479419a7bd2c49740, type: 2}
-  levelUpgradeCommand: {fileID: 11400000, guid: 87e2875e063106343a6f47b733fd8ba9, type: 2}
+  attackSpeedUpgradeCommand: {fileID: 11400000, guid: 38f6280a242e5f74aaeb0426ab812a6a, type: 2}
   rangeUpgradeCommand: {fileID: 11400000, guid: dde1ece0c3df5734588d72dcebc03678, type: 2}
 --- !u!1 &6618517205334926905
 GameObject:

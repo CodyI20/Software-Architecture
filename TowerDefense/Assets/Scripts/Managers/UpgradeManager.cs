@@ -1,19 +1,18 @@
 using UnityEngine;
 
 
-[RequireComponent(typeof(TowerStats))]
 public class UpgradeManager : MonoBehaviour
 {
-    private TowerStats tower;
+    private AbstractTower tower;
     private Canvas choiceCanvas;
 
     [SerializeField] private CommandSO damageUpgradeCommand;
-    [SerializeField] private CommandSO levelUpgradeCommand;
+    [SerializeField] private CommandSO attackSpeedUpgradeCommand;
     [SerializeField] private CommandSO rangeUpgradeCommand;
 
     private void Awake()
     {
-        tower = GetComponent<TowerStats>();
+        tower = GetComponent<AbstractTower>();
         choiceCanvas = GetComponentInChildren<Canvas>();
         if(choiceCanvas == null)
         {
@@ -26,9 +25,9 @@ public class UpgradeManager : MonoBehaviour
         damageUpgradeCommand.Execute(tower);
     }
 
-    public void UpgradeLevel()
+    public void UpgradeAttackSpeed()
     {
-        levelUpgradeCommand.Execute(tower);
+        attackSpeedUpgradeCommand.Execute(tower);
     }
 
     public void UpgradeRange()

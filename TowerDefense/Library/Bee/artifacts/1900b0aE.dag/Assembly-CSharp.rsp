@@ -361,6 +361,7 @@
 -analyzer:"D:/Unity/2022.3.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Prefabs/Towers/TowerSpawners/TowerShop.cs"
 "Assets/Scripts/DesignPatterns/Command/ScriptableObjects/CommandSO.cs"
+"Assets/Scripts/DesignPatterns/Command/ScriptableObjects/UpgradeAttackSpeedCommandSO.cs"
 "Assets/Scripts/DesignPatterns/Command/ScriptableObjects/UpgradeDamageCommandSO.cs"
 "Assets/Scripts/DesignPatterns/Command/ScriptableObjects/UpgradeLevelCommandSO.cs"
 "Assets/Scripts/DesignPatterns/Command/ScriptableObjects/UpgradeRangeCommandSO.cs"
