@@ -8,6 +8,5 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "TowerSpawnerSettingsSO", menuName = "ScriptableObjects/TowerSettings/TowerSpawnerSettings", order = 1)]
 public class TowerSpawnerSettingsSO : ScriptableObject
 {
-    [Tooltip("Drag in the tower prefabs!")] public GameObject[] towerPrefabs;
-    [Tooltip("Drag in the tower shop icons")] public GameObject[] towerIcons;
+    [Tooltip("Drag in the tower shop icons")] public GameObject[] towers;
 }

@@ -62,7 +62,7 @@ public class TowerSpawner : MonoBehaviour
         choiceCanvas.gameObject.SetActive(false);
 
         //Add the buttons for the towers
-        foreach (GameObject towerImage in towerSpawnerSO.towerIcons)
+        foreach (GameObject towerImage in towerSpawnerSO.towers)
         {
             Instantiate(towerImage, choiceCanvas.transform);
         }
@@ -110,24 +110,14 @@ public class TowerSpawner : MonoBehaviour
         }
     }
 
-    void SpawnTower(TowerType towerType, TowerSettingsSO towerSettings)
+    void SpawnTower(TowerSettingsSO towerSettings, GameObject towerPrefab)
     {
         //Check if the canvas is active ( for making sure the static event doesn't trigger for all the spawners at once)
         if (choiceCanvas.gameObject.activeSelf)
         {
-            //Go through all the towers
-            foreach (GameObject tower in towerSpawnerSO.towerPrefabs)
-            {
-                //Check if the type is the same as the one from the icon
-                AbstractTower aT = tower.GetComponent<AbstractTower>();
-                if (aT.towerType == towerType)
-                {
-                    //Spawn the tower at that position and with that rotation
-                    Instantiate(tower, transform.position, transform.rotation);
-                    aT.towerSettings = towerSettings;
-                    Destroy(gameObject);
-                }
-            }
+            Instantiate(towerPrefab, transform.position, transform.rotation);
+            towerPrefab.GetComponent<TowerStats>().towerSettings = towerSettings;
+            Destroy(gameObject);
         }
     }
 

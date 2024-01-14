@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8de7e466c53b44d9a9fa245679cc6f, type: 3}
   m_Name: MageTowerSettings
   m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 4549597833030128575, guid: 0df92a6ed70d8ad4d931bc9889f82be0, type: 3}
   initialDamage: 2
-  initialAttackSpeed: 10
-  initialRange: 3.6
-  Damage: 2
-  AttackSpeed: 10
-  Range: 3.6
+  initialAttackSpeed: 1
+  initialRange: 3
+  Damage: 12
+  AttackSpeed: 1
+  Range: 15

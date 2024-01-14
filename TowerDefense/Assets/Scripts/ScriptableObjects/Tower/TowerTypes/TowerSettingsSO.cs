@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TowerSettings", menuName = "ScriptableObjects/TowerSettings/TowerSettings", order = 2)]
 public class TowerSettingsSO : ScriptableObject, ISerializationCallbackReceiver
 {
+    [Tooltip("Drag in the tower icon prefab here!")] public GameObject towerPrefab;
     //public TowerType towerType;
     [Min(0)] public int initialDamage;
     [Min(0f)] public float initialAttackSpeed;

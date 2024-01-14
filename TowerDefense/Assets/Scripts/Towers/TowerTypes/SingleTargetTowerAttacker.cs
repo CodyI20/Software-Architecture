@@ -13,8 +13,9 @@ public class SingleTargetTowerAttacker : AbstractTower
     //}
     //Implement a way to randomly attack a target from the queue rather than the first one
     //And an option to choose which target to attack
-    protected override void DoAttack(Queue<GameObject> enemy)
+    protected override void DoAttack(Queue<GameObject> enemy, int damage)
     {
-        enemy.Peek().GetComponent<AbstractEnemy>().TakeDamage(towerSettings.Damage);
+        Debug.Log("SINGLE TARGET ATTACK!");
+        enemy.Peek().GetComponent<AbstractEnemy>().TakeDamage(damage);
     }
 }

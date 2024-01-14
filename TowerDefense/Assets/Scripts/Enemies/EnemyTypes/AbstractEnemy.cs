@@ -7,12 +7,11 @@ using UnityEngine;
 /// It also holds base functions that every single enemy type should have: 
 /// For example a method that finds the target and assigns it to a variable.
 /// </summary>
-[RequireComponent(typeof(EnemyController))]
 public abstract class AbstractEnemy : MonoBehaviour, IDamageable
 {
     public static event Action<int> onEnemyDeath;
     public static event Action<int> onEnemyReachedBase;
-    public event Action<float,float> onEnemyHealthChange;
+    public event Action<float, float> onEnemyHealthChange;
 
     [SerializeField, Tooltip("Drag in the ScriptableObject with the enemy settings")] protected EnemySettingsSO settings;
     public int currentHealth { get; protected set; }
@@ -24,16 +23,21 @@ public abstract class AbstractEnemy : MonoBehaviour, IDamageable
 
     protected virtual void Awake()
     {
-        if(settings == null)
+        if (settings == null)
         {
             throw new System.Exception("No settings file found! Assign one in the inspector!");
         }
-        if(moneyDroppedUI == null)
+        if (moneyDroppedUI == null)
         {
             throw new Exception("The canvas for the money dropped cannot be found!");
         }
         controller = GetComponent<EnemyController>();
-        controller.SetInitialEnemySpeed(settings.Speed);
+        //if (controller == null)
+        //{
+        //    throw new Exception("The enemy controller cannot be found!");
+        //}
+        if(controller != null)
+            controller.SetInitialEnemySpeed(settings.Speed);
     }
     private void Start()
     {
@@ -42,12 +46,14 @@ public abstract class AbstractEnemy : MonoBehaviour, IDamageable
 
     private void OnEnable()
     {
-        controller.onTargetReached += TargetReachedActions;
+        if (controller != null)
+            controller.onTargetReached += TargetReachedActions;
     }
 
     private void OnDisable()
     {
-        controller.onTargetReached -= TargetReachedActions;
+        if (controller != null)
+            controller.onTargetReached -= TargetReachedActions;
     }
 
     /// <summary>
@@ -80,14 +86,14 @@ public abstract class AbstractEnemy : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             currentHealth = 0;
             Instantiate(moneyDroppedUI, transform.position, Quaternion.identity);
             onEnemyDeath?.Invoke(settings.CoinsDropped);
             Destroy(gameObject);
         }
-        onEnemyHealthChange?.Invoke(settings.MaxHealth,currentHealth);
+        onEnemyHealthChange?.Invoke(settings.MaxHealth, currentHealth);
     }
 
     protected virtual void TargetReachedActions()

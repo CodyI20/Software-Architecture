@@ -1,53 +1,33 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 /// <summary>
 /// This class holds the base information needed for all towers.
 /// </summary>
+[RequireComponent(typeof(TowerStats))]
 public abstract class AbstractTower : MonoBehaviour
 {
+    protected TowerStats towerStats;
+
+    private void Awake()
+    {
+        towerStats = GetComponent<TowerStats>();
+    }
+
     [SerializeField] private TowerType _towerType;
     public TowerType towerType
     {
         get { return _towerType;}
     }
-    //private Canvas canvas;
-
-    //SETTINGS
-    [HideInInspector] public TowerSettingsSO towerSettings;
-    //[SerializeField, Tooltip("Drag in the tower upgrader settings scriptable object!")] private TowerSpawnerSettingsSO towerUpgraderSettings;
-    //public TowerSettingsSO TowerSettings { get { return towerSettings;} }
 
     private float attackTime = 0f;
-
-    //private void Awake()
-    //{
-    //    if (towerUpgraderSettings == null)
-    //    {
-    //        throw new Exception("The mandatory scriptable object is missing from this prefab! Please drag in the TowerSpawnerSettingsSO file!");
-    //    }
-    //    SetupCanvas();
-    //}
-
-    //void SetupCanvas()
-    //{
-    //    canvas = GetComponentInChildren<Canvas>();
-    //    if(canvas == null)
-    //    {
-    //        throw new Exception($"The canvas component on the Tower: {gameObject.name} cannot be found!");
-    //    }
-    //    canvas.gameObject.SetActive(false);
-    //    foreach(GameObject upgradeImage in towerUpgraderSettings.towerIcons)
-    //    {
-    //        Instantiate(upgradeImage, canvas.transform);
-    //    }
-    //}
-    protected abstract void DoAttack(Queue<GameObject> enemies);
+    protected abstract void DoAttack(Queue<GameObject> enemies, int damage = 0);
 
     private void AttackIfInRange()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, towerSettings.Range);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, towerStats.towerSettings.Range);
 
         Queue<GameObject> enemyColliders = new Queue<GameObject>();
         foreach (Collider collider in colliders)
@@ -59,8 +39,8 @@ public abstract class AbstractTower : MonoBehaviour
         }
         if(enemyColliders.Count > 0)
         {
-            attackTime = towerSettings.AttackSpeed;
-            DoAttack(enemyColliders);
+            attackTime = towerStats.towerSettings.AttackSpeed;
+            DoAttack(enemyColliders, towerStats.towerSettings.Damage);
         }
     }
 
@@ -83,7 +63,7 @@ public abstract class AbstractTower : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, towerSettings.Range);
+        Gizmos.DrawWireSphere(transform.position, towerStats.towerSettings.Range);
     }
 
 }

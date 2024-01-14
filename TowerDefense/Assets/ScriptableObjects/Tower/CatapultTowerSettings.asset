@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5b575e443c1ae4bb7179825ad3b5f7, type: 3}
   m_Name: CatapultTowerSettings
   m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 3775415947842856849, guid: 801ffde73b786144db356bbdb6b29462, type: 3}
   initialDamage: 0
   initialAttackSpeed: 0
   initialRange: 5

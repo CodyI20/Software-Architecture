@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TowerIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public static event Action<TowerType, TowerSettingsSO> onTowerPicked;
+    public static event Action<TowerSettingsSO, GameObject> onTowerPicked;
     public static event Action<TowerSettingsSO> onIconHoverEnter;
     public static event Action onIconExit;
 
@@ -92,7 +92,7 @@ public class TowerIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
         // Invoke the event that others can listen to
         if (Player.playerInstance.SpendCoins(towerCost))
         {
-            onTowerPicked?.Invoke(TowerType, towerSettings);
+            onTowerPicked?.Invoke(towerSettings, towerSettings.towerPrefab);
             onIconExit?.Invoke();
         }
     }

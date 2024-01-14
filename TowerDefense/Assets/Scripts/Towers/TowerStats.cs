@@ -1,26 +1,17 @@
 using UnityEngine;
 
+/// <summary>
+/// This class holds the stats for the tower and the upgrade logic (uses the Command pattern)
+/// </summary>
 public class TowerStats : MonoBehaviour
 {
-    //private int damage;
+    public TowerSettingsSO towerSettings;
     private int level = 1;
-    //private int range;
-
-    private AbstractTower tower;
-
-    private void Awake()
-    {
-        tower = GetComponent<AbstractTower>();
-        if(tower == null)
-        {
-            throw new System.Exception("The AbstractTower component cannot be found on this object!");
-        }
-    }
 
     public void UpgradeDamage(int amount)
     {
-        tower.towerSettings.Damage += amount;
-        Debug.Log($"Tower upgraded! New damage: {tower.towerSettings.Damage}");
+        towerSettings.Damage += amount;
+        Debug.Log($"Tower upgraded! New damage: {towerSettings.Damage}");
     }
 
     public void UpgradeLevel()
@@ -31,8 +22,8 @@ public class TowerStats : MonoBehaviour
 
     public void UpgradeRange(int amount)
     {
-        tower.towerSettings.Range += amount;
-        Debug.Log($"Tower upgraded! New range: {tower.towerSettings.Range}");
+        towerSettings.Range += amount;
+        Debug.Log($"Tower upgraded! New range: {towerSettings.Range}");
     }
 
 }
