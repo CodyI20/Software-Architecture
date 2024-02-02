@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 3775415947842856849, guid: 801ffde73b786144db356bbdb6b29462, type: 3}
   initialDamage: 0
-  initialAttackSpeed: 0
+  initialAttackDelay: 3
   initialRange: 5
   Damage: 0
-  AttackSpeed: 0
+  AttackDelay: 0
   Range: 5
   InitialSlowPercentage: 70
   SlowPercentage: 70

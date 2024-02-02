@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
-    public static Player playerInstance { get; private set; }
+    public static Player Instance { get; private set; }
     public static event Action<int> onCoinsChanged;
     public static event Action<int> onHealthChanged;
     [SerializeField] private PlayerDataSO data;
@@ -18,18 +18,20 @@ public class Player : MonoBehaviour
     {
         AbstractEnemy.onEnemyDeath += GainCoins;
         AbstractEnemy.onEnemyReachedBase += LoseHealth;
+        UpgradeManager.onTowerSold += GainCoins;
     }
     private void OnDisable()
     {
         AbstractEnemy.onEnemyDeath -= GainCoins;
         AbstractEnemy.onEnemyReachedBase -= LoseHealth;
+        UpgradeManager.onTowerSold -= GainCoins;
     }
 
     private void Awake()
     {
-        if (playerInstance == null)
+        if (Instance == null)
         {
-            playerInstance = this;
+            Instance = this;
         }
         else
         {
@@ -77,6 +79,6 @@ public class Player : MonoBehaviour
 
     private void OnDestroy()
     {
-        playerInstance = null;
+        Instance = null;
     }
 }

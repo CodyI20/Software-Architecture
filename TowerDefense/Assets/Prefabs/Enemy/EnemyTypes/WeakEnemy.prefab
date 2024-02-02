@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5525530872799457183, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5803044159826782318, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
       propertyPath: m_Name
       value: WeakEnemy

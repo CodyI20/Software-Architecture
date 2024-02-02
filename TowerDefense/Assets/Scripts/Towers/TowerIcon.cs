@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TowerIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public static event Action<TowerSettingsSO, GameObject> onTowerPicked;
+    public static event Action<TowerSettingsSO, GameObject, int> onTowerPicked;
     public static event Action<TowerSettingsSO> onIconHoverEnter;
     public static event Action onIconExit;
 
@@ -74,7 +74,7 @@ public class TowerIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     void ChangeOpacity()
     {
         var tempColor = iconImage.color;
-        if (Player.playerInstance.coins >= towerCost)
+        if (Player.Instance.coins >= towerCost)
         {
             tempColor.a = 1.0f;
             iconImage.color = tempColor;
@@ -90,9 +90,9 @@ public class TowerIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     {
         //Debug.Log("CLICKED ON ICON!");
         // Invoke the event that others can listen to
-        if (Player.playerInstance.SpendCoins(towerCost))
+        if (Player.Instance.SpendCoins(towerCost))
         {
-            onTowerPicked?.Invoke(towerSettings, towerSettings.towerPrefab);
+            onTowerPicked?.Invoke(towerSettings, towerSettings.towerPrefab, towerCost);
             onIconExit?.Invoke();
         }
     }

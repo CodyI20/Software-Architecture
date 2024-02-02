@@ -16,7 +16,7 @@ public class TowerSpawner : MonoBehaviour
     {
         if (towerSpawnerSO == null)
         {
-            throw new System.Exception("The mandatory scriptable object is missing from this prefab! Please drag in the TowerSpawnerSettingsSO file!");
+            throw new Exception("The mandatory scriptable object is missing from this prefab! Please drag in the TowerSpawnerSettingsSO file!");
         }
         if (rangeSphere == null)
         {
@@ -69,25 +69,6 @@ public class TowerSpawner : MonoBehaviour
 
     }
 
-    //This was used for positioning the canvas (Result FL=17)
-    //private void Update()
-    //{
-    //    float distanceToCamera = Vector3.Distance(choiceCanvas.transform.position, Camera.main.transform.position);
-    //    float movementSpeed = 0.1f;
-
-    //    if (distanceToCamera > FL)
-    //    {
-    //        // Move the canvas towards the camera
-    //        choiceCanvas.transform.position = Vector3.Lerp(choiceCanvas.transform.position, Camera.main.transform.position, movementSpeed * Time.deltaTime);
-    //    }
-    //    else if (distanceToCamera <= FL)
-    //    {
-    //        // Move the canvas away from the camera
-    //        Vector3 directionToCamera = (choiceCanvas.transform.position - Camera.main.transform.position).normalized;
-    //        choiceCanvas.transform.position += directionToCamera * movementSpeed * 2;
-    //    }
-    //}
-
     void EnableCanvas()
     {
         // Check for mouse clicks
@@ -110,13 +91,14 @@ public class TowerSpawner : MonoBehaviour
         }
     }
 
-    void SpawnTower(TowerSettingsSO towerSettings, GameObject towerPrefab)
+    void SpawnTower(TowerSettingsSO towerSettings, GameObject towerPrefab, int towerCost)
     {
         //Check if the canvas is active ( for making sure the static event doesn't trigger for all the spawners at once)
         if (choiceCanvas.gameObject.activeSelf)
         {
-            Instantiate(towerPrefab, transform.position, transform.rotation);
             towerPrefab.GetComponent<AbstractTower>().towerSettings = towerSettings;
+            towerPrefab.GetComponent<AbstractTower>().towerCost = towerCost;
+            Instantiate(towerPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

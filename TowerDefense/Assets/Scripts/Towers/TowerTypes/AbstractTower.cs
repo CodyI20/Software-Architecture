@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 /// <summary>
@@ -10,6 +9,7 @@ using UnityEngine;
 public abstract class AbstractTower : MonoBehaviour
 {
     public TowerSettingsSO towerSettings;
+    public int towerCost;
     private int level = 1;
 
     [SerializeField] private TowerType _towerType;
