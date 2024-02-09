@@ -10,23 +10,28 @@ public enum GameState
 
 public class GameManager : Singleton<GameManager>
 {
+    public event System.Action OnGamePaused;
+
     //Public variables
-    public GameState gameState { get; private set; }
+    public static GameState gameState { get; private set; }
 
     //Private variables
     [SerializeField, Tooltip("The key to press in order to pause the game")] private KeyCode pauseKey = KeyCode.Escape;
     [SerializeField, Tooltip("Whether or not to also disable the Audio while the game is paused")] private bool muteAudioOnPause = true;
 
+    private static float _gameSpeed = 1.0f;
+
     protected override void Awake()
     {
         base.Awake();
-        gameState = GameState.Playing; //Could add functionality for when the game starts while Paused (weird concept)
+        ResetGameState();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void ResetGameState()
     {
-
+        gameState = GameState.Playing; //Could add functionality for when the game starts while Paused (weird concept)
+        _gameSpeed = 1.0f;
+        Time.timeScale = _gameSpeed;
     }
 
     // Update is called once per frame
@@ -41,15 +46,51 @@ public class GameManager : Singleton<GameManager>
 
     public void SwitchGamePause()
     {
-        gameState = (gameState == GameState.Paused) ? GameState.Playing : GameState.Paused;
-
+        if (gameState == GameState.Paused)
+        {
+            gameState = GameState.Playing;
+        }
+        else
+        {
+            gameState = GameState.Paused;
+            OnGamePaused?.Invoke();
+        }
         if (muteAudioOnPause)
             AudioListener.pause = !AudioListener.pause;
-        Time.timeScale = 1.0f - Time.timeScale;
+        Time.timeScale = _gameSpeed - Time.timeScale;
+    }
+
+    public void SetGameSpeed()
+    {
+        if (gameState == GameState.Paused)
+            return;
+        _gameSpeed = (_gameSpeed == 1.0f) ? 2.0f : 1.0f;
+        Time.timeScale = _gameSpeed;
     }
 
     public void ReloadCurrentScene()
     {
+        ResetGameState();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GoToNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void QuitAppication()
+    {
+        Application.Quit();
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 }

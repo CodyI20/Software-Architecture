@@ -114,6 +114,7 @@ public class TowerSpawner : MonoBehaviour
 
     void Update()
     {
-        EnableCanvas();
+        if (GameManager.gameState == GameState.Playing)
+            EnableCanvas();
     }
 }

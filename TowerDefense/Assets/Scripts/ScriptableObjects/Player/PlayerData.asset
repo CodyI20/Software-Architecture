@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingHealth: 10
   StartingCoins: 100
+  currentCoins: 100
+  currentHealth: 10
+  unlimitedCoins: 0
+  unlimitedHealth: 0

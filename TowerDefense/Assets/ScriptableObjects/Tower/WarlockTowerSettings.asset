@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WarlockTowerSettings
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 3303146712512408390, guid: 4f20aa564d68fa34ab04fc680e49a20e, type: 3}
+  towerVisuals: {fileID: 3727280497487217741, guid: 7ed613a47b99dcb499135ed59fd84861, type: 3}
   initialDamage: 5
   initialAttackDelay: 3.5
   initialRange: 4

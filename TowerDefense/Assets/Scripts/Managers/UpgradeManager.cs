@@ -134,7 +134,8 @@ public class UpgradeManager : MonoBehaviour
 
     private void Update()
     {
-        EnableCanvas();
+        if (GameManager.gameState == GameState.Playing)
+            EnableCanvas();
     }
 
     void EnableCanvas()

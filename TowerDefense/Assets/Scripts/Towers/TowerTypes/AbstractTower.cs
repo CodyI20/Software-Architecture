@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ public abstract class AbstractTower : MonoBehaviour
     [SerializeField] private TowerType _towerType;
     public TowerType towerType
     {
-        get { return _towerType;}
+        get { return _towerType; }
     }
 
     private float attackTime = 0f;
@@ -33,11 +32,19 @@ public abstract class AbstractTower : MonoBehaviour
                 enemyColliders.Enqueue(collider.gameObject);
             }
         }
-        if(enemyColliders.Count > 0)
+        if (enemyColliders.Count > 0)
         {
             attackTime = towerSettings.AttackDelay;
             DoAttack(enemyColliders, towerSettings.Damage);
+            DisplayVisuals();
         }
+    }
+
+    //This function is called in the DoAttack function to display the tower's visuals.
+    private void DisplayVisuals()
+    {
+        GameObject visual = Instantiate(towerSettings.towerVisuals, transform.position, Quaternion.identity);
+        Destroy(visual, towerSettings.visualsDuration);
     }
 
     private void AttackAfterCD()
@@ -54,7 +61,8 @@ public abstract class AbstractTower : MonoBehaviour
 
     private void Update()
     {
-        AttackAfterCD();
+        if (GameManager.gameState == GameState.Playing)
+            AttackAfterCD();
     }
 
     public void UpgradeDamage(int amount)

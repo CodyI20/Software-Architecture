@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MageTowerSettings
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 4549597833030128575, guid: 0df92a6ed70d8ad4d931bc9889f82be0, type: 3}
+  towerVisuals: {fileID: 3727280497487217741, guid: 7ed613a47b99dcb499135ed59fd84861, type: 3}
   initialDamage: 2
   initialAttackDelay: 2
   initialRange: 3

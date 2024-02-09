@@ -7,6 +7,8 @@ using UnityEngine;
 public class TowerSettingsSO : ScriptableObject, ISerializationCallbackReceiver
 {
     [Tooltip("Drag in the tower icon prefab here!")] public GameObject towerPrefab;
+    [Tooltip("Drag in the visuals for the tower here!")] public GameObject towerVisuals;
+    [Tooltip("Adjust the time it takes until the visuals disappear")] public float visualsDuration = 0.4f;
     //public TowerType towerType;
     [Min(0)] public int initialDamage;
     [Min(0f)] public float initialAttackDelay;

@@ -16,12 +16,16 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
+        data.onCoinsChanged += SetCoins;
+        data.onHealthChanged += SetHealth;
         AbstractEnemy.onEnemyDeath += GainCoins;
         AbstractEnemy.onEnemyReachedBase += LoseHealth;
         UpgradeManager.onTowerSold += GainCoins;
     }
     private void OnDisable()
     {
+        data.onHealthChanged -= SetHealth;
+        data.onCoinsChanged -= SetCoins;
         AbstractEnemy.onEnemyDeath -= GainCoins;
         AbstractEnemy.onEnemyReachedBase -= LoseHealth;
         UpgradeManager.onTowerSold -= GainCoins;
@@ -37,13 +41,13 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        SetInitialValues();
+        SetValue();
     }
-    void SetInitialValues()
+    void SetValue()
     {
-        coins = data.StartingCoins;
+        coins = data.currentCoins;
         onCoinsChanged?.Invoke(coins);
-        health = data.StartingHealth;
+        health = data.currentHealth;
         onHealthChanged?.Invoke(health);
     }
 
@@ -75,6 +79,17 @@ public class Player : MonoBehaviour
             GameManager.Instance.ReloadCurrentScene();
         }
         onHealthChanged?.Invoke(health);
+    }
+
+    void SetHealth(int amount)
+    {
+        health = amount;
+        onHealthChanged?.Invoke(health);
+    }
+    void SetCoins(int amount)
+    {
+        coins = amount;
+        onCoinsChanged?.Invoke(coins);
     }
 
     private void OnDestroy()
