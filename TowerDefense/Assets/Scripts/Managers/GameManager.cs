@@ -10,7 +10,7 @@ public enum GameState
 
 public class GameManager : Singleton<GameManager>
 {
-    public event System.Action OnGamePaused;
+    public static event System.Action OnGameStateSwitch;
 
     //Public variables
     public static GameState gameState { get; private set; }
@@ -46,18 +46,11 @@ public class GameManager : Singleton<GameManager>
 
     public void SwitchGamePause()
     {
-        if (gameState == GameState.Paused)
-        {
-            gameState = GameState.Playing;
-        }
-        else
-        {
-            gameState = GameState.Paused;
-            OnGamePaused?.Invoke();
-        }
+        gameState = (gameState == GameState.Paused) ? GameState.Playing : GameState.Paused;
         if (muteAudioOnPause)
             AudioListener.pause = !AudioListener.pause;
         Time.timeScale = _gameSpeed - Time.timeScale;
+        OnGameStateSwitch?.Invoke();
     }
 
     public void SetGameSpeed()
