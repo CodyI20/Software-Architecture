@@ -402,6 +402,7 @@
 "Assets/Scripts/UI/AbstractUIText.cs"
 "Assets/Scripts/UI/CoinsUIText.cs"
 "Assets/Scripts/UI/HealthUIText.cs"
+"Assets/Scripts/UI/OverlayUISwitch.cs"
 "Assets/Scripts/UI/SpeedDisplay.cs"
 "Assets/Scripts/UI/WaveUIDisplay.cs"
 "Assets/Scripts/Utility/DestroyAfterSeconds.cs"
