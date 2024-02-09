@@ -10,6 +10,10 @@ public class AdvanceWave : MonoBehaviour, IPointerClickHandler
     public static event Action onWaveAdvance;
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(GameManager.gameState == GameState.Paused)
+        {
+            return;
+        }
         Debug.Log("PRESSED THE ADVANCE_WAVE ICON!");
         onWaveAdvance?.Invoke();
     }
