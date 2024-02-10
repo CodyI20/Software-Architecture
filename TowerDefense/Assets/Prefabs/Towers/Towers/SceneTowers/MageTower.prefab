@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4549597833030128575}
-  m_Mesh: {fileID: 1087186328911376035, guid: e351f2cb9d2f18c45a0ab77be095f51d, type: 3}
+  m_Mesh: {fileID: 3861478300804232965, guid: 59a9b58c47163ae428d922e569406f3f, type: 3}
 --- !u!23 &7475239664725228796
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65,9 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -872196626646429207, guid: e351f2cb9d2f18c45a0ab77be095f51d, type: 3}
-  - {fileID: -4231637370832951941, guid: e351f2cb9d2f18c45a0ab77be095f51d, type: 3}
-  - {fileID: 7555185752953191562, guid: e351f2cb9d2f18c45a0ab77be095f51d, type: 3}
+  - {fileID: 2100000, guid: 8f3dfd3f7cc2fed4297d134a50b52c57, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerSettings: {fileID: 11400000, guid: bf209f55539a556488c403891233dfa9, type: 2}
-  towerCost: 0
+  towerCost: 30
   _towerType: 1
 --- !u!114 &3999090377479972965
 MonoBehaviour:
@@ -138,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerModels:
-  - {fileID: 7894923455239280221, guid: e9d12a709c5f0eb42a84e59f5e8ebf6c, type: 3}
+  - {fileID: -3086944861826413830, guid: e33c7dcdaa041c144864e51d88d62154, type: 3}
   damageUpgradeCommand: {fileID: 11400000, guid: 1404fd2a20f323e479419a7bd2c49740, type: 2}
   attackSpeedUpgradeCommand: {fileID: 11400000, guid: 38f6280a242e5f74aaeb0426ab812a6a, type: 2}
   rangeUpgradeCommand: {fileID: 11400000, guid: dde1ece0c3df5734588d72dcebc03678, type: 2}
@@ -180,11 +178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1233441806389893198, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1732.9999
+      value: 775
       objectReference: {fileID: 0}
     - target: {fileID: 1233441806389893198, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 817
+      value: 395
       objectReference: {fileID: 0}
     - target: {fileID: 1233441806389893198, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -234,6 +232,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1482237715471802580, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482237715471802580, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1643629865230646056, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -249,6 +255,14 @@ PrefabInstance:
     - target: {fileID: 5306005635179535842, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173066223950961620, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173066223950961620, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -59.7
       objectReference: {fileID: 0}
     - target: {fileID: 6596530395266644699, guid: 01ac33c159434ed4da835cad0a9a759f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
