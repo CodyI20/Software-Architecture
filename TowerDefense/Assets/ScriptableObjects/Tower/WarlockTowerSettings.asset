@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8de7e466c53b44d9a9fa245679cc6f, type: 3}
+  m_Name: WarlockTowerSettings
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 3303146712512408390, guid: 4f20aa564d68fa34ab04fc680e49a20e, type: 3}
+  towerVisuals: {fileID: 3727280497487217741, guid: 7ed613a47b99dcb499135ed59fd84861, type: 3}
+  initialDamage: 5
+  initialAttackDelay: 3.5
+  initialRange: 4
+  Damage: 5
+  AttackDelay: 3.5
+  Range: 4
