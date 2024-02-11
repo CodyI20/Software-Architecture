@@ -21,6 +21,7 @@ public class Player : Singleton<Player>
         AbstractEnemy.onEnemyDeath += GainCoins;
         AbstractEnemy.onEnemyReachedBase += LoseHealth;
         UpgradeManager.onTowerSold += GainCoins;
+        AdvanceWave.onWaveAdvance += GainCoins;
     }
     private void OnDisable()
     {
@@ -29,6 +30,7 @@ public class Player : Singleton<Player>
         AbstractEnemy.onEnemyDeath -= GainCoins;
         AbstractEnemy.onEnemyReachedBase -= LoseHealth;
         UpgradeManager.onTowerSold -= GainCoins;
+        AdvanceWave.onWaveAdvance -= GainCoins;
     }
 
     protected override void Awake()

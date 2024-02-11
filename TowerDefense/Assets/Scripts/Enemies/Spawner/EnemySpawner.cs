@@ -90,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
         return true;
     }
 
-    void CallNextWave()
+    void CallNextWave(int a)
     {
         numberOfEnemyToSpawn = 0;
         waveNumber += 1;
@@ -109,7 +109,7 @@ public class EnemySpawner : MonoBehaviour
             waveSlider.value = timeSinceWaveFinished / Wave[waveNumber].timeUntilWaveStarts;
             if (timeSinceWaveFinished >= Wave[waveNumber].timeUntilWaveStarts)
             {
-                CallNextWave();
+                CallNextWave(0);
             }
         }
     }

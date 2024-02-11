@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3feba84949b333b49b5e710463cc9cac, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  StartingHealth: 10
-  StartingCoins: 100
-  currentCoins: 100
-  currentHealth: 10
+  StartingHealth: 15
+  StartingCoins: 125
+  currentCoins: 125
+  currentHealth: 15
   unlimitedCoins: 0
   unlimitedHealth: 0

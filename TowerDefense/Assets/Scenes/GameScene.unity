@@ -3641,6 +3641,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 80415428545856037, guid: e4cc5e0d79f2a34468190084f56304a8, type: 3}
+      propertyPath: coins
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 80415428545856037, guid: e4cc5e0d79f2a34468190084f56304a8, type: 3}
+      propertyPath: moneyGainedUI
+      value: 
+      objectReference: {fileID: 3071297323762012168, guid: 40f64525cbd76714b93ac1f4549ab2a0, type: 3}
+    - target: {fileID: 80415428545856037, guid: e4cc5e0d79f2a34468190084f56304a8, type: 3}
+      propertyPath: coinsLostPerSecond
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3799689042738454290, guid: e4cc5e0d79f2a34468190084f56304a8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3750,7 +3762,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5803044159826782318, guid: 372a65e815ee0ab47ae39b9319e8ffc9, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6342259124264212226, guid: e4cc5e0d79f2a34468190084f56304a8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4cc5e0d79f2a34468190084f56304a8, type: 3}

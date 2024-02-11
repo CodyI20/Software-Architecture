@@ -27,6 +27,6 @@ public abstract class AbstractUIText : MonoBehaviour
     }
     protected void ChangeText(int newText)
     {
-        textElement.text = newText.ToString();
+        textElement.text = "+" + newText.ToString();
     }
 }
