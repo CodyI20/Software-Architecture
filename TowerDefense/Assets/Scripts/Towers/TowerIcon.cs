@@ -48,7 +48,6 @@ public class TowerIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
         ToggleActiveStats();
     }
 
-    //Find a better, MORE RELIABLE way to do this
     void SetTheTextForChildren()
     {
         UIDisplays[0].text = $"Type: {TowerType}";
@@ -93,6 +92,7 @@ public class TowerIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
         if (Player.Instance.SpendCoins(towerCost))
         {
             onTowerPicked?.Invoke(towerSettings, towerSettings.towerPrefab, towerCost);
+            ToggleActiveStats();
             onIconExit?.Invoke();
         }
     }

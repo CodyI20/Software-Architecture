@@ -29,6 +29,11 @@ public class TowerSpawner : MonoBehaviour
         SetupCanvas();
     }
 
+    private void Start()
+    {
+        UpgradeManager.onTowerSold += EnableTowerSpawner;
+    }
+
     private void OnEnable()
     {
         TowerIcon.onTowerPicked += SpawnTower;
@@ -39,6 +44,11 @@ public class TowerSpawner : MonoBehaviour
     {
         TowerIcon.onTowerPicked -= SpawnTower;
         TowerIcon.onIconHoverEnter -= SetTheRangeSphere;
+    }
+
+    private void OnDestroy()
+    {
+        UpgradeManager.onTowerSold -= EnableTowerSpawner;
     }
 
     void SetupCanvas()
@@ -99,8 +109,14 @@ public class TowerSpawner : MonoBehaviour
             towerPrefab.GetComponent<AbstractTower>().towerSettings = towerSettings;
             towerPrefab.GetComponent<AbstractTower>().towerCost = towerCost;
             Instantiate(towerPrefab, transform.position, transform.rotation);
-            Destroy(gameObject);
+            choiceCanvas.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
+    }
+
+    void EnableTowerSpawner(int a)
+    {
+        gameObject.SetActive(true);
     }
 
     void SetTheRangeSphere(TowerSettingsSO towerSettings)

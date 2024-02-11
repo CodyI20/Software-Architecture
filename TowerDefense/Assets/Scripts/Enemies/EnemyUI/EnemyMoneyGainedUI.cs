@@ -4,10 +4,10 @@ public class EnemyMoneyGainedUI : AbstractUIText
 {
     private void OnEnable()
     {
-        AbstractEnemy.onEnemyDeath += ChangeText;
+        AbstractEnemy.onEnemyDeath += AdditionText;
     }
     private void OnDisable()
     {
-        AbstractEnemy.onEnemyDeath -= ChangeText;
+        AbstractEnemy.onEnemyDeath -= AdditionText;
     }
 }

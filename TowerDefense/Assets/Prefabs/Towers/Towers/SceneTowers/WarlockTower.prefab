@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3303146712512408390}
-  m_Mesh: {fileID: 7629050649492442297, guid: 7639b47247ee557498c62cca24632486, type: 3}
+  m_Mesh: {fileID: 8510062094627432126, guid: 933b16d5eed358f48b1a4fd5796d708e, type: 3}
 --- !u!23 &5213444825742252688
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -137,7 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ea0a8d1aa9084aadcee460334d6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerModels: []
+  towerModels:
+  - {fileID: -1325092371557230647, guid: 675e2763bebfac8448d4174d67be2b5b, type: 3}
+  - {fileID: 7133746474929662970, guid: 7639b47247ee557498c62cca24632486, type: 3}
   damageUpgradeCommand: {fileID: 11400000, guid: 1404fd2a20f323e479419a7bd2c49740, type: 2}
   attackSpeedUpgradeCommand: {fileID: 11400000, guid: 38f6280a242e5f74aaeb0426ab812a6a, type: 2}
   rangeUpgradeCommand: {fileID: 11400000, guid: dde1ece0c3df5734588d72dcebc03678, type: 2}

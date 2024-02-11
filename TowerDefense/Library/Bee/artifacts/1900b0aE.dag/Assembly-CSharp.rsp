@@ -366,6 +366,7 @@
 "Assets/Scripts/DesignPatterns/Command/ScriptableObjects/UpgradeLevelCommandSO.cs"
 "Assets/Scripts/DesignPatterns/Command/ScriptableObjects/UpgradeRangeCommandSO.cs"
 "Assets/Scripts/DesignPatterns/Singleton/Singleton.cs"
+"Assets/Scripts/Enemies/EnemyAnimator.cs"
 "Assets/Scripts/Enemies/EnemyTypes/AbstractEnemy.cs"
 "Assets/Scripts/Enemies/EnemyTypes/EnemyController.cs"
 "Assets/Scripts/Enemies/EnemyTypes/StrongEnemy.cs"

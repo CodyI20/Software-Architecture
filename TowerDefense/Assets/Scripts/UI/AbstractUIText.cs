@@ -27,6 +27,16 @@ public abstract class AbstractUIText : MonoBehaviour
     }
     protected void ChangeText(int newText)
     {
+        textElement.text = newText.ToString();
+    }
+
+    protected void ChangeTextMixed(string stringText, int intText)
+    {
+        textElement.text = stringText + intText.ToString();
+    }
+
+    protected void AdditionText(int newText)
+    {
         textElement.text = "+" + newText.ToString();
     }
 }

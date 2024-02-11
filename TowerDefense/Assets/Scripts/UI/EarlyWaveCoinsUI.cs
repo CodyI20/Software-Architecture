@@ -4,11 +4,11 @@ public class EarlyWaveCoinsUI : AbstractUIText
 {
     private void OnEnable()
     {
-        AdvanceWave.onWaveAdvance += ChangeText;
+        AdvanceWave.onWaveAdvance += AdditionText;
     }
 
     private void OnDisable()
     {
-        AdvanceWave.onWaveAdvance -= ChangeText;
+        AdvanceWave.onWaveAdvance -= AdditionText;
     }
 }
