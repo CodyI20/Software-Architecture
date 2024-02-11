@@ -12,7 +12,7 @@ public class WaveUIDisplay : AbstractUIText
         {
             maxWaves = Mathf.Max(maxWaves, spawner.NumberOfWaves);
         }
-        UpdateWaveText();
+        UpdateWaveText(0);
     }
     private void OnEnable()
     {
@@ -24,7 +24,7 @@ public class WaveUIDisplay : AbstractUIText
         EnemySpawner.onWaveFinished -= UpdateWaveText;
     }
 
-    private void UpdateWaveText()
+    private void UpdateWaveText(int a)
     {
         ChangeText($"Wave {EnemySpawner.waveNumber} / {maxWaves}");
     }

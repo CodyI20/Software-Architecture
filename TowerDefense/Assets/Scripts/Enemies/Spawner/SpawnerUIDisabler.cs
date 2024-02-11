@@ -21,4 +21,9 @@ public class SpawnerUIDisabler : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    void DisableObject(int a)
+    {
+        gameObject.SetActive(false);
+    }
 }

@@ -10,7 +10,8 @@ using UnityEngine.UI;
 public class EnemySpawner : MonoBehaviour
 {
     //PUBLIC VARIABLES:
-    public static event Action onWaveFinished;
+    public static event Action<int> onWaveFinishedSpawning;
+    public static event Action<int> onWaveFinished;
     public static int waveNumber = 1;
 
     //Calculate the number of waves in the array
@@ -76,6 +77,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (numberOfEnemyToSpawn >= Wave[waveNumber - 1].enemiesInWave.Length)
         {
+            onWaveFinishedSpawning?.Invoke(MaxNumberOfWaves);
             return true;
         }
         return false;
@@ -94,7 +96,7 @@ public class EnemySpawner : MonoBehaviour
         waveNumber += 1;
         timeSinceWaveFinished = 0f;
         waveSlider.value = 0f;
-        onWaveFinished?.Invoke();
+        onWaveFinished?.Invoke(MaxNumberOfWaves);
         Debug.Log($"SPAWNING NEXT WAVE...{waveNumber}");
     }
 
@@ -133,12 +135,12 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        onWaveFinished?.Invoke();
         MaxNumberOfWaves = 0;
         foreach (var spawner in FindObjectsOfType<EnemySpawner>())
         {
             MaxNumberOfWaves = Mathf.Max(MaxNumberOfWaves, spawner.NumberOfWaves);
         }
+        onWaveFinished?.Invoke(MaxNumberOfWaves);
     }
 
 

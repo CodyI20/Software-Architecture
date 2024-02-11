@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e5a4aa981e4564d95c8c191ea1476f, type: 3}
   m_Name: StrongEnemySettingsSO
   m_EditorClassIdentifier: 
-  MaxHealth: 20
-  CoinsDropped: 10
-  Speed: 2
+  MaxHealth: 35
+  CoinsDropped: 25
+  DamageToBase: 2
+  Speed: 3

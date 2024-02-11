@@ -4,9 +4,9 @@ using UnityEngine;
 /// <summary>
 /// This class holds all the information regarding the player
 /// </summary>
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
-    public static Player Instance { get; private set; }
+    public static event Action OnPlayerDeath;
     public static event Action<int> onCoinsChanged;
     public static event Action<int> onHealthChanged;
     [SerializeField] private PlayerDataSO data;
@@ -31,16 +31,9 @@ public class Player : MonoBehaviour
         UpgradeManager.onTowerSold -= GainCoins;
     }
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        base.Awake();
         SetValue();
     }
     void SetValue()
@@ -76,7 +69,7 @@ public class Player : MonoBehaviour
         {
             //Implement logic for when the health reaches 0 or below
             Debug.Log("GAME OVER!");
-            GameManager.Instance.ReloadCurrentScene();
+            OnPlayerDeath?.Invoke();
         }
         onHealthChanged?.Invoke(health);
     }
@@ -90,10 +83,5 @@ public class Player : MonoBehaviour
     {
         coins = amount;
         onCoinsChanged?.Invoke(coins);
-    }
-
-    private void OnDestroy()
-    {
-        Instance = null;
     }
 }

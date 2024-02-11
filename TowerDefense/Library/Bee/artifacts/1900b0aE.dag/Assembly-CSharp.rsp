@@ -368,6 +368,7 @@
 "Assets/Scripts/DesignPatterns/Singleton/Singleton.cs"
 "Assets/Scripts/Enemies/EnemyTypes/AbstractEnemy.cs"
 "Assets/Scripts/Enemies/EnemyTypes/EnemyController.cs"
+"Assets/Scripts/Enemies/EnemyTypes/StrongEnemy.cs"
 "Assets/Scripts/Enemies/EnemyTypes/WeakEnemy.cs"
 "Assets/Scripts/Enemies/EnemyUI/EnemyMoneyGainedUI.cs"
 "Assets/Scripts/Enemies/EnemyUI/HealthBar.cs"

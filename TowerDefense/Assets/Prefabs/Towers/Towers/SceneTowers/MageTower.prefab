@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerModels:
   - {fileID: -3086944861826413830, guid: e33c7dcdaa041c144864e51d88d62154, type: 3}
+  - {fileID: -7235015103121818086, guid: d0a5abdbfc73382449ae830aa9094b19, type: 3}
   damageUpgradeCommand: {fileID: 11400000, guid: 1404fd2a20f323e479419a7bd2c49740, type: 2}
   attackSpeedUpgradeCommand: {fileID: 11400000, guid: 38f6280a242e5f74aaeb0426ab812a6a, type: 2}
   rangeUpgradeCommand: {fileID: 11400000, guid: dde1ece0c3df5734588d72dcebc03678, type: 2}

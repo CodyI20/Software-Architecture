@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,11 @@ public enum GameState
     Interrupted = 2
 }
 
+
+/// <summary>
+/// This class is used to manage the game state and handle the game pause functionality. It also contains the game speed functionality.
+/// And it also contains the functionality to check the win and loss states of the game.
+/// </summary>
 public class GameManager : Singleton<GameManager>
 {
     public static event System.Action OnGameStateSwitch;
@@ -20,11 +26,26 @@ public class GameManager : Singleton<GameManager>
     [SerializeField, Tooltip("Whether or not to also disable the Audio while the game is paused")] private bool muteAudioOnPause = true;
 
     private static float _gameSpeed = 1.0f;
+    private Queue<GameObject> currentEnemiesOnField = new Queue<GameObject>();
+    private bool canCheckFinalWave = false;
 
     protected override void Awake()
     {
         base.Awake();
         ResetGameState();
+    }
+
+    private void OnEnable()
+    {
+        EnemySpawner.onWaveFinishedSpawning += CheckLastWave;
+        Player.OnPlayerDeath += LossState;
+        AbstractEnemy.onEnemyDeath += RemoveDeadEnemies;
+    }
+    private void OnDisable()
+    {
+        EnemySpawner.onWaveFinishedSpawning -= CheckLastWave;
+        Player.OnPlayerDeath -= LossState;
+        AbstractEnemy.onEnemyDeath -= RemoveDeadEnemies;
     }
 
     void ResetGameState()
@@ -42,6 +63,8 @@ public class GameManager : Singleton<GameManager>
         {
             SwitchGamePause();
         }
+        if (canCheckFinalWave)
+            CheckWinState();
     }
 
     public void SwitchGamePause()
@@ -59,6 +82,36 @@ public class GameManager : Singleton<GameManager>
             return;
         _gameSpeed = (_gameSpeed == 1.0f) ? 2.0f : 1.0f;
         Time.timeScale = _gameSpeed;
+    }
+
+    GameObject[] EnemiesOnTheField() { return GameObject.FindGameObjectsWithTag("Enemy"); }
+
+    void CheckLastWave(int MaxWaves)
+    {
+        if (EnemySpawner.waveNumber >= MaxWaves)
+        {
+            canCheckFinalWave = true;
+            currentEnemiesOnField = new Queue<GameObject>(EnemiesOnTheField());
+        }
+    }
+
+    void RemoveDeadEnemies(int a)
+    {
+        if (canCheckFinalWave && currentEnemiesOnField.Count > 0)
+            currentEnemiesOnField.Dequeue();
+    }
+
+    void CheckWinState() { if (currentEnemiesOnField.Count == 0) WinState(); }
+
+    void WinState()
+    {
+        canCheckFinalWave = false;
+        SceneManager.LoadScene(2);
+    }
+
+    void LossState()
+    {
+        SceneManager.LoadScene(3); //Defeat Scene
     }
 
     public void ReloadCurrentScene()
